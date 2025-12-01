@@ -3,8 +3,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { FaTachometerAlt, FaChartBar, FaLock } from "react-icons/fa";
 
 const navItems = [
-  { label: "HyperEVM", icon: <FaTachometerAlt />, path: "/hyperlend" },
-  { label: "HyperCore", icon: <FaChartBar />, path: "/hyperliquid" },
+  { label: "Overview", icon: <FaTachometerAlt />, path: "/overview" },
+  { label: "Strategies", icon: <FaChartBar />, path: "/strategies" },
   { label: "Delpho Vault", icon: <FaLock />, path: "/vault" },
 ];
 
@@ -24,7 +24,7 @@ const HomeSidebar: React.FC = () => {
           {navItems.map((item) => {
             const isActive =
               location.pathname === item.path ||
-              (item.path === "/hyperlend" && location.pathname === "/");
+              (item.path === "/overview" && location.pathname === "/");
             return (
               <button
                 key={item.label}
