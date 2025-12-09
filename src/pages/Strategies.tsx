@@ -15,25 +15,6 @@ interface Strategy {
   risk: "Low" | "Medium" | "High";
 }
 
-interface UserPosition {
-  address: string;
-  suppliedCollateral: number;
-  mintedUSDV: number;
-  stakedSUSDV: number;
-  ltv: number;
-  liquidationPrice: number;
-  healthFactor: number;
-}
-
-type UserPositionKey =
-  | "address"
-  | "suppliedCollateral"
-  | "mintedUSDV"
-  | "stakedSUSDV"
-  | "ltv"
-  | "liquidationPrice"
-  | "healthFactor";
-
 const STRATEGIES: Strategy[] = [
   {
     id: "hype-sentiment",
@@ -77,59 +58,8 @@ const STRATEGIES: Strategy[] = [
   },
 ];
 
-const USER_POSITIONS: UserPosition[] = [
-  {
-    address: "0x8a2...42d1",
-    suppliedCollateral: 210_000,
-    mintedUSDV: 110_000,
-    stakedSUSDV: 45_000,
-    ltv: 52.4,
-    liquidationPrice: 32_500,
-    healthFactor: 1.58,
-  },
-  {
-    address: "0x4b1...ee99",
-    suppliedCollateral: 125_500,
-    mintedUSDV: 62_800,
-    stakedSUSDV: 20_000,
-    ltv: 50.0,
-    liquidationPrice: 29_900,
-    healthFactor: 1.71,
-  },
-  {
-    address: "0xf91...bc33",
-    suppliedCollateral: 98_420,
-    mintedUSDV: 70_000,
-    stakedSUSDV: 31_750,
-    ltv: 71.1,
-    liquidationPrice: 25_400,
-    healthFactor: 1.21,
-  },
-  {
-    address: "0xe10...aa02",
-    suppliedCollateral: 350_000,
-    mintedUSDV: 140_500,
-    stakedSUSDV: 60_000,
-    ltv: 40.1,
-    liquidationPrice: 34_200,
-    healthFactor: 2.02,
-  },
-  {
-    address: "0x7ce...f201",
-    suppliedCollateral: 64_100,
-    mintedUSDV: 48_000,
-    stakedSUSDV: 10_500,
-    ltv: 74.9,
-    liquidationPrice: 21_900,
-    healthFactor: 1.09,
-  },
-];
-
 const Strategies: React.FC = () => {
   const [selectedStrategyId, setSelectedStrategyId] = useState(STRATEGIES[0].id);
-  const selectedStrategy =
-    STRATEGIES.find((strategy) => strategy.id === selectedStrategyId) ??
-    STRATEGIES[0];
 
   const {
     positions,
@@ -142,14 +72,6 @@ const Strategies: React.FC = () => {
     isLoading: hyperLendLoading,
     error: hyperLendError,
   } = useHyperLendData();
-  const [userSearch, setUserSearch] = useState("");
-  const [sortConfig, setSortConfig] = useState<{
-    key: UserPositionKey;
-    direction: "asc" | "desc";
-  }>({
-    key: "ltv",
-    direction: "desc",
-  });
 
   useEffect(() => {
     fetchCompleteState();
@@ -161,32 +83,6 @@ const Strategies: React.FC = () => {
     () => transformPositionsTable(positions),
     [positions]
   );
-
-  const sortedUsers = useMemo(() => {
-    const filtered = USER_POSITIONS.filter((user) =>
-      user.address.toLowerCase().includes(userSearch.toLowerCase())
-    );
-    return [...filtered].sort((a, b) => {
-      const key = sortConfig.key;
-      const direction = sortConfig.direction === "asc" ? 1 : -1;
-      if (typeof a[key] === "string" && typeof b[key] === "string") {
-        return (a[key] as string).localeCompare(b[key] as string) * direction;
-      }
-      return ((a[key] as number) - (b[key] as number)) * direction;
-    });
-  }, [userSearch, sortConfig]);
-
-  const handleSort = (key: UserPositionKey) => {
-    setSortConfig((prev) => {
-      if (prev.key === key) {
-        return {
-          key,
-          direction: prev.direction === "asc" ? "desc" : "asc",
-        };
-      }
-      return { key, direction: "desc" };
-    });
-  };
 
   const formatCurrency = (value?: number) => {
     if (value === undefined || value === null) return "$0.00";
