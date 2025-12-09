@@ -9,6 +9,8 @@ interface AssetRow {
   collateral: boolean;
 }
 
+
+
 interface AssetTableSectionProps {
   rows: AssetRow[];
   activeTab: "Spot" | "Perps";
