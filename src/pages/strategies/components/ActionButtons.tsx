@@ -1,5 +1,4 @@
 import React from "react";
-import type { ActionType } from "../types";
 
 interface ActionButtonsProps {
   onRebalance: () => void;
