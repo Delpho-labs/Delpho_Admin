@@ -47,7 +47,7 @@ export const ConnectWalletButton = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     onClick={openConnectModal}
-                    className="px-6 py-2 rounded-full border border-[#E6FFF6] text-[#E6FFF6] hover:bg-[#1A2323] transition cursor-pointer"
+                    className="px-6 py-2 rounded-full border border-[#E6FFF6] text-[#E6FFF6] hover:bg-[#1A2323] transition"
                   >
                     Connect Wallet
                   </motion.button>
@@ -59,7 +59,7 @@ export const ConnectWalletButton = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     onClick={openChainModal}
-                    className="px-6 py-2 rounded-full border border-red-500 text-red-500 hover:bg-[#1A2323] transition cursor-pointer"
+                    className="px-6 py-2 rounded-full border border-red-500 text-red-500 hover:bg-[#1A2323] transition"
                   >
                     Wrong network
                   </motion.button>
@@ -71,7 +71,7 @@ export const ConnectWalletButton = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     onClick={openChainModal}
-                    className="px-4 py-2 rounded-full border border-[#E6FFF6] text-[#E6FFF6] hover:bg-[#1A2323] transition flex items-center gap-2 cursor-pointer"
+                    className="px-4 py-2 rounded-full border border-[#E6FFF6] text-[#E6FFF6] hover:bg-[#1A2323] transition flex items-center gap-2"
                   >
                     {chain.hasIcon && (
                       <div
@@ -95,7 +95,7 @@ export const ConnectWalletButton = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     onClick={openAccountModal}
-                    className="px-4 py-2 rounded-full border border-[#E6FFF6] text-[#E6FFF6] hover:bg-[#1A2323] transition cursor-pointer"
+                    className="px-4 py-2 rounded-full border border-[#E6FFF6] text-[#E6FFF6] hover:bg-[#1A2323] transition"
                   >
                     {account.displayName}
                   </motion.button>

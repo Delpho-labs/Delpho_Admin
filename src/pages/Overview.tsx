@@ -2,6 +2,7 @@ import React from "react";
 import HomeSidebar from "../components/HomeSidebar";
 import TopNav from "../components/TopNav";
 import { useHyperLendData } from "../hooks/useHyperLendData";
+import { useHyperliquid } from "../hooks/useHyperliquidData";
 
 interface UserPositionRow {
   address: string;
@@ -72,6 +73,7 @@ const MOCK_USER_POSITIONS: UserPositionRow[] = [
 
 const Overview: React.FC = () => {
   const { data: hyperLendData, isLoading, error } = useHyperLendData();
+  const { positions } = useHyperliquid();
 
   const formatCurrency = (value?: number) => {
     if (value === undefined || value === null) return "$0.00";
@@ -120,7 +122,7 @@ const Overview: React.FC = () => {
           />
         </section>
 
-        <section>
+        <section className="grid gap-6 lg:grid-cols-[1.2fr,0.8fr]">
           <div className="bg-[#0B1212] rounded-3xl p-6 space-y-4">
             <div className="flex items-center justify-between">
               <div>
@@ -168,11 +170,81 @@ const Overview: React.FC = () => {
               </div>
             )}
           </div>
+
+          <div className="bg-[#0B1212] rounded-3xl p-6 space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold">Execution Status</h2>
+              <span className="text-xs text-[#A3B8B0]">
+                {positions?.assetPositions?.length ?? 0} open positions
+              </span>
+            </div>
+            <div className="rounded-2xl border border-[#1A2323] overflow-hidden">
+              <table className="w-full text-left text-sm">
+                <thead className="bg-[#111818] text-[#A3B8B0]">
+                  <tr>
+                    <th className="px-4 py-3">Coin</th>
+                    <th className="px-4 py-3">Size</th>
+                    <th className="px-4 py-3">Entry</th>
+                    <th className="px-4 py-3">PNL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {!positions?.assetPositions?.length ? (
+                    <tr>
+                      <td
+                        colSpan={4}
+                        className="px-4 py-6 text-center text-[#A3B8B0]"
+                      >
+                        No positions in execution
+                      </td>
+                    </tr>
+                  ) : (
+                    positions.assetPositions.slice(0, 4).map((position) => (
+                      <tr
+                        key={position.position?.coin}
+                        className="border-t border-[#1A2323] hover:bg-[#111818]"
+                      >
+                        <td className="px-4 py-3">
+                          {position.position?.coin ?? "-"}
+                        </td>
+                        <td className="px-4 py-3">
+                          {position.position?.szi
+                            ? Math.abs(
+                                parseFloat(position.position.szi)
+                              ).toFixed(4)
+                            : "0.0000"}
+                        </td>
+                        <td className="px-4 py-3">
+                          {position.position?.entryPx
+                            ? `$${parseFloat(
+                                position.position.entryPx
+                              ).toFixed(2)}`
+                            : "$0.00"}
+                        </td>
+                        <td className="px-4 py-3">
+                          {position.position?.unrealizedPnl
+                            ? `${parseFloat(
+                                position.position.unrealizedPnl
+                              ) >= 0
+                                ? "+"
+                                : ""
+                              }${parseFloat(
+                                position.position.unrealizedPnl
+                              ).toFixed(2)}`
+                            : "+0.00"}
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </section>
 
         <VaultUsersSection />
 
-        <section>
+        <section className="grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
           <div className="bg-[#0B1212] rounded-3xl p-6 space-y-4">
             <div className="flex items-center justify-between">
               <h2 className="text-xl font-semibold">Strategy Overview</h2>
@@ -183,9 +255,38 @@ const Overview: React.FC = () => {
             <div className="grid gap-4 md:grid-cols-2">
               <OverviewMetric label="Hype Programs" value="2 live" />
               <OverviewMetric label="KHype Programs" value="2 live" />
-              <OverviewMetric label="Net Exposure" value="Balanced / Hedged" />
+              <OverviewMetric
+                label="Net Exposure"
+                value="Balanced / Hedged"
+              />
               <OverviewMetric label="Execution Venue" value="HyperLiquid" />
             </div>
+          </div>
+
+          <div className="bg-[#0B1212] rounded-3xl p-6 space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold">Recent Activity</h2>
+            </div>
+            <ul className="space-y-3 text-sm">
+              <OverviewEvent
+                title="Vault rebalance executed"
+                detail="Shifted 5% BTC to ETH for loop strategy capacity."
+                timestamp="Today, 14:12 UTC"
+                badge="Rebalance"
+              />
+              <OverviewEvent
+                title="USDV mint approved"
+                detail="250k USDV queued for Hype HyperLend loop."
+                timestamp="Today, 11:47 UTC"
+                badge="Admin"
+              />
+              <OverviewEvent
+                title="Soft liquidation alert cleared"
+                detail="At-risk account restored above target health factor."
+                timestamp="Yesterday, 23:18 UTC"
+                badge="Risk"
+              />
+            </ul>
           </div>
         </section>
       </main>
@@ -228,6 +329,34 @@ const OverviewMetric: React.FC<OverviewMetricProps> = ({ label, value }) => (
     <p className="text-sm text-[#A3B8B0]">{label}</p>
     <p className="text-lg font-semibold mt-1">{value}</p>
   </div>
+);
+
+interface OverviewEventProps {
+  title: string;
+  detail: string;
+  timestamp: string;
+  badge: string;
+}
+
+const OverviewEvent: React.FC<OverviewEventProps> = ({
+  title,
+  detail,
+  timestamp,
+  badge,
+}) => (
+  <li className="flex items-start gap-3">
+    <div className="mt-1 h-2 w-2 rounded-full bg-[#00FFB2]" />
+    <div className="flex-1">
+      <div className="flex items-center justify-between mb-1">
+        <p className="font-medium">{title}</p>
+        <span className="text-[11px] text-[#7E8F89]">{timestamp}</span>
+      </div>
+      <p className="text-[#A3B8B0] text-sm">{detail}</p>
+      <span className="mt-1 inline-block text-[11px] px-2 py-0.5 rounded-full bg-[#111C1C] text-[#7E8F89]">
+        {badge}
+      </span>
+    </div>
+  </li>
 );
 
 const VaultUsersSection: React.FC = () => {
@@ -305,7 +434,7 @@ const VaultUsersSection: React.FC = () => {
               ).map(([key, label]) => (
                 <th
                   key={key}
-                  className="px-4 py-3 cursor-pointer select-none hover:text-[#E6FFF6] transition-colors"
+                  className="px-4 py-3 cursor-pointer select-none"
                   onClick={() => handleSort(key)}
                 >
                   {label}
@@ -372,3 +501,4 @@ const VaultUsersSection: React.FC = () => {
 };
 
 export default Overview;
+

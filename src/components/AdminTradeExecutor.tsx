@@ -932,6 +932,7 @@ const AdminTradeExecutor: React.FC<AdminTradeExecutorProps> = ({
                 <button
                   onClick={() => setIsModalOpen(false)}
                   className="text-[#A3B8B0] hover:text-[#E6FFF6] cursor-pointer transition-colors p-1 rounded-full hover:bg-[#1A2323]"
+                  disabled={isLoading}
                 >
                   ✕
                 </button>
@@ -942,7 +943,8 @@ const AdminTradeExecutor: React.FC<AdminTradeExecutorProps> = ({
                   <button
                     type="button"
                     onClick={() => setIsModalOpen(false)}
-                    className="flex-1 px-4 py-3 bg-[#1A2323] text-[#E6FFF6] rounded-lg hover:bg-[#2A3333] transition-colors cursor-pointer font-medium"
+                    disabled={isLoading}
+                    className="flex-1 px-4 py-3 bg-[#1A2323] text-[#E6FFF6] rounded-lg hover:bg-[#2A3333] transition-colors cursor-pointer font-medium disabled:opacity-50"
                   >
                     Cancel
                   </button>
