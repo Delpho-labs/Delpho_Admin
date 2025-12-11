@@ -1,165 +1,113 @@
-import React, { useMemo } from "react";
-import { FiActivity, FiClock, FiPieChart, FiTrendingUp } from "react-icons/fi";
+import React from "react";
 import HomeSidebar from "../components/HomeSidebar";
 import TopNav from "../components/TopNav";
-import CollateralTable from "./vault/components/CollateralTable";
-import Section from "./vault/components/Section";
-import StatCard from "./vault/components/StatCard";
-import type { CollateralRow } from "./vault/types";
+import { motion } from "framer-motion";
 import { useVaultData } from "../hooks/useVaultData";
-
-const formatDateTime = (timestamp?: number) => {
-  if (!timestamp) return "—";
-  return new Date(timestamp * 1000).toLocaleString();
-};
 
 
 const VaultDashboard: React.FC = () => {
   const { data, isLoading, error } = useVaultData();
 
-  const derived = useMemo(() => {
-    const utilization =
-      data && data.totalCollateral > 0
-        ? Math.min(
-            (data.totalBorrowed / data.totalCollateral) * 100,
-            999
-          ).toFixed(1)
-        : "0.0";
 
-    const collateralRows: CollateralRow[] = [
-      {
-        label: "Total Collateral",
-        hype: `${(data?.totalCollateral ?? 0).toFixed(3)} HYPE`,
-        khype: "—",
-      },
-      {
-        label: "Buffer Funds",
-        hype: `${(data?.bufferFunds ?? 0).toFixed(3)} HYPE`,
-        khype: "—",
-      },
-      {
-        label: "Funds For Executor",
-        hype: `${(data?.fundsForExecutor ?? 0).toFixed(3)} HYPE`,
-        khype: "—",
-      },
-      {
-        label: "Available For Withdraw",
-        hype: `${(data?.roundData.availableCollateral ?? 0).toFixed(3)} HYPE`,
-        khype: "—",
-      },
-      {
-        label: "Withdraw Requests (current)",
-        hype: `${(data?.roundData.totalWithdrawalRequests ?? 0).toFixed(
-          3
-        )} HYPE`,
-        khype: "—",
-      },
-    ];
-
-    return {
-      utilization,
-      collateralRows,
-    };
-  }, [data]);
-
-  const shimmer = (
-    <div className="h-5 w-24 animate-pulse rounded bg-white/10" aria-hidden />
-  );
+  const formatDate = (timestamp: number) => {
+    return new Date(timestamp * 1000).toLocaleString();
+  };
 
   return (
-    <div className="min-h-screen bg-[#0A1010] text-white">
-      <div className="pointer-events-none fixed inset-0 opacity-40">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(38,255,212,0.08),transparent_35%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(88,139,255,0.08),transparent_30%)]" />
-      </div>
+    <div className="min-h-screen flex bg-[#101616] text-[#E6FFF6]">
+      <HomeSidebar />
+      <main className="flex-1 p-4 md:p-8 overflow-y-auto">
+        <TopNav title="Delpho Vault Dashboard" />
 
-      <div className="relative flex">
-        <HomeSidebar />
-        <main className="flex-1 overflow-y-auto px-4 py-6 md:px-10">
-          <TopNav title="Delpho Vault" />
-
-          {error && (
-            <div className="mb-4 rounded-2xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-100">
-              Unable to load live vault data. Showing placeholders.
-            </div>
-          )}
-
-          {isLoading && (
-            <div className="my-10 grid gap-4 md:grid-cols-2">
-              {[...Array(4)].map((_, idx) => (
-                <div
-                  key={idx}
-                  className="h-28 animate-pulse rounded-2xl bg-white/5"
-                />
-              ))}
-            </div>
-          )}
-
+        {isLoading ? (
+          <div className="flex justify-center items-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#E6FFF6]"></div>
+          </div>
+        ) : error ? (
+          <div className="text-red-400 p-4 rounded bg-[#1A2323]">
+            Error loading vault data
+          </div>
+        ) : data && (
           <div className="space-y-6">
-            <Section title="Round Details">
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                <StatCard
-                  icon={<FiActivity />}
-                  label="Current Round"
-                  value={data ? `#${data.currentRound}` : "—"}
-                  hint={`Utilization ${derived.utilization}%`}
-                  accent="from-emerald-500/15"
-                />
-                <StatCard
-                  icon={<FiClock />}
-                  label="Round Start"
-                  value={data ? formatDateTime(data.roundData.startTime) : "—"}
-                  hint="UTC"
-                />
-                <StatCard
-                  icon={<FiClock />}
-                  label="Round End"
-                  value={data ? formatDateTime(data.roundData.endTime) : "—"}
-                  hint="UTC"
-                />
-                <StatCard
-                  icon={<FiTrendingUp />}
-                  label="Expected Current Round"
-                  value={data ? `#${data.currentRound}` : "—"}
-                  hint="Projected sync"
-                />
-              </div>
-            </Section>
+            {/* Main Metrics Table */}
+            <div className="bg-[#0B1212] rounded-xl p-0 overflow-x-auto">
+              <table className="min-w-full text-left">
+                <thead>
+                  <tr className="text-[#A3B8B0] border-b border-[#1A2323]">
+                    <th className="py-2 px-4 font-normal">Total Collateral</th>
+                    <th className="py-2 px-4 font-normal">Total Borrowed</th>
+                    <th className="py-2 px-4 font-normal">dUSD Minted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <motion.tr
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.04 }}
+                    className="border-b border-[#1A2323]"
+                  >
+                    <td className="py-2 px-4">{Number(data.totalCollateral).toFixed(3)} WHYPE</td>
+                    <td className="py-2 px-4">{Number(data.totalBorrowed).toFixed(3)} DUSD</td>
+                    <td className="py-2 px-4">{Number(data.dusdMinted).toFixed(3)} DUSD</td>
+                  </motion.tr>
+                </tbody>
+              </table>
+            </div>
 
-            <div className="grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
-              <Section
-                title="Supply & Staking"
-                subtitle="Ready for staking integration"
-              >
-                <div className="grid gap-4 md:grid-cols-2">
-                  <StatCard
-                    icon={<FiTrendingUp />}
-                    label="USDV Total Supply"
-                    value={data ? `${data.dusdMinted.toFixed(3)} USDV` : "—"}
-                    hint="On-chain metric"
-                    accent="from-emerald-400/15"
-                  />
-                  <StatCard
-                    icon={<FiPieChart />}
-                    label="USDV Staked"
-                    value={
-                      data
-                        ? `${(data.dusdMinted * 0.42).toFixed(3)} USDV`
-                        : shimmer
-                    }
-                    hint="Placeholder · hook when ready"
-                    accent="from-indigo-400/15"
-                  />
-                </div>
-              </Section>
+            {/* Funds Allocation Table */}
+            <div className="bg-[#0B1212] rounded-xl p-0 overflow-x-auto">
+              <table className="min-w-full text-left">
+                <thead>
+                  <tr className="text-[#A3B8B0] border-b border-[#1A2323]">
+                    <th className="py-2 px-4 font-normal">Buffer Funds</th>
+                    <th className="py-2 px-4 font-normal">Executor Funds</th>
+                    <th className="py-2 px-4 font-normal">Current Round</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <motion.tr
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.08 }}
+                    className="border-b border-[#1A2323]"
+                  >
+                    <td className="py-2 px-4">{Number(data.bufferFunds).toFixed(3)} WHYPE</td>
+                    <td className="py-2 px-4">{Number(data.fundsForExecutor).toFixed(3)} WHYPE</td>
+                    <td className="py-2 px-4">#{data.currentRound}</td>
+                  </motion.tr>
+                </tbody>
+              </table>
+            </div>
 
-              <Section title="Collateral Details" subtitle="HYPE & KHype legs">
-                <CollateralTable rows={derived.collateralRows} />
-              </Section>
+            {/* Round Data Table */}
+            <div className="bg-[#0B1212] rounded-xl p-0 overflow-x-auto">
+              <table className="min-w-full text-left">
+                <thead>
+                  <tr className="text-[#A3B8B0] border-b border-[#1A2323]">
+                    <th className="py-2 px-4 font-normal">Withdrawal Requests</th>
+                    <th className="py-2 px-4 font-normal">Available Collateral</th>
+                    <th className="py-2 px-4 font-normal">Round Start</th>
+                    <th className="py-2 px-4 font-normal">Round End</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <motion.tr
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.12 }}
+                    className="border-b border-[#1A2323]"
+                  >
+                    <td className="py-2 px-4">{Number(data.roundData.totalWithdrawalRequests).toFixed(3)} WHYPE</td>
+                    <td className="py-2 px-4">{Number(data.roundData.availableCollateral).toFixed(3)} WHYPE</td>
+                    <td className="py-2 px-4">{formatDate(data.roundData.startTime)}</td>
+                    <td className="py-2 px-4">{formatDate(data.roundData.endTime)}</td>
+                  </motion.tr>
+                </tbody>
+              </table>
             </div>
           </div>
-        </main>
-      </div>
+        )}
+      </main>
     </div>
   );
 };
