@@ -45,20 +45,20 @@ const AssetTableSection: React.FC<AssetTableSectionProps> = ({
       {/* Spot/Perps Tabs */}
       <div className="flex gap-4 mb-4">
         <button
-          className={`px-6 py-2 rounded-full bg-[#0B1212] font-semibold border-b-2 ${
+          className={`px-6 py-2 rounded-full bg-[#0B1212] font-semibold border-b-2 cursor-pointer transition-colors ${
             activeTab === "Spot"
               ? "text-[#E6FFF6] border-[#E6FFF6]"
-              : "text-[#A3B8B0] border-transparent"
+              : "text-[#A3B8B0] border-transparent hover:text-[#E6FFF6]"
           }`}
           onClick={() => onTabChange && onTabChange("Spot")}
         >
           Spot
         </button>
         <button
-          className={`px-6 py-2 rounded-full bg-[#0B1212] font-semibold border-b-2 ${
+          className={`px-6 py-2 rounded-full bg-[#0B1212] font-semibold border-b-2 cursor-pointer transition-colors ${
             activeTab === "Perps"
               ? "text-[#E6FFF6] border-[#E6FFF6]"
-              : "text-[#A3B8B0] border-transparent"
+              : "text-[#A3B8B0] border-transparent hover:text-[#E6FFF6]"
           }`}
           onClick={() => onTabChange && onTabChange("Perps")}
         >
@@ -100,7 +100,7 @@ const AssetTableSection: React.FC<AssetTableSectionProps> = ({
                 <td className="py-2 px-4">Core</td>
                 <td className="py-2 px-4">
                   {!walletConnected && (
-                    <button className="px-4 py-1 rounded-full bg-[#E6FFF6] text-[#101616] font-semibold">
+                    <button className="px-4 py-1 rounded-full bg-[#E6FFF6] text-[#101616] font-semibold cursor-pointer hover:bg-[#D0F0E6] transition-colors">
                       Connect Wallet
                     </button>
                   )}
