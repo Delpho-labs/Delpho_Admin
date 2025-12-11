@@ -4,14 +4,11 @@ import TopNav from "../components/TopNav";
 import { motion } from "framer-motion";
 import { useVaultData } from "../hooks/useVaultData";
 
-
-const formatDateTime = (timestamp?: number) => {
-  if (!timestamp) return "—";
-  return new Date(timestamp * 1000).toLocaleString();
-};
-
-
 const VaultDashboard: React.FC = () => {
+  const formatDateTime = (timestamp?: number) => {
+    if (!timestamp) return "—";
+    return new Date(timestamp * 1000).toLocaleString();
+  };
   const { data, isLoading, error } = useVaultData();
 
 
