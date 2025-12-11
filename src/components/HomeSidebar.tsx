@@ -1,11 +1,12 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { FaTachometerAlt, FaChartBar, FaLock } from "react-icons/fa";
+import { FaTachometerAlt, FaChartBar, FaLock, FaShieldAlt } from "react-icons/fa";
 
 const navItems = [
   { label: "Overview", icon: <FaTachometerAlt />, path: "/overview" },
   { label: "Strategies", icon: <FaChartBar />, path: "/strategies" },
   { label: "Delpho Vault", icon: <FaLock />, path: "/vault" },
+  { label: "Stability Pool", icon: <FaShieldAlt />, path: "/stability" },
 ];
 
 const HomeSidebar: React.FC = () => {
@@ -28,7 +29,7 @@ const HomeSidebar: React.FC = () => {
             return (
               <button
                 key={item.label}
-                className={`flex items-center gap-3 px-4 py-2 rounded-full text-left transition-colors text-lg ${
+                className={`flex items-center gap-3 px-4 py-2 rounded-full text-left transition-colors text-lg cursor-pointer ${
                   isActive
                     ? "bg-[#E6FFF6] text-[#101616] font-semibold"
                     : "hover:bg-[#1A2323] text-[#E6FFF6]"

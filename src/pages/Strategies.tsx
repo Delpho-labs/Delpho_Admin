@@ -3,63 +3,25 @@ import HomeSidebar from "../components/HomeSidebar";
 import TopNav from "../components/TopNav";
 import { useHyperliquid } from "../hooks/useHyperliquidData";
 import { useHyperLendData } from "../hooks/useHyperLendData";
-import type { ClearinghouseState } from "../utils/hyperliquid";
-
-interface Strategy {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  focus: string;
-  asset: string;
-  risk: "Low" | "Medium" | "High";
-}
-
-const STRATEGIES: Strategy[] = [
-  {
-    id: "hype-sentiment",
-    title: "Hype - Sentiment Strategy",
-    subtitle: "Signals-driven directional exposure",
-    description:
-      "Leverages real-time social sentiment and HyperLiquid perp liquidity for fast directional positioning.",
-    focus: "BTC Perp",
-    asset: "BTC",
-    risk: "Medium",
-  },
-  {
-    id: "hype-hyperlend",
-    title: "Hype - Hyperlend Strategy",
-    subtitle: "Capital-efficient looping",
-    description:
-      "Optimizes LTV by cycling collateral between HyperLend and HyperLiquid execution.",
-    focus: "ETH Loop",
-    asset: "ETH",
-    risk: "Low",
-  },
-  {
-    id: "khype-sentiment",
-    title: "KHype - Sentiment Strategy",
-    subtitle: "Multi-venue hedged sentiment",
-    description:
-      "Combines cross-venue hedges with momentum execution for lower variance.",
-    focus: "Basket",
-    asset: "SOL",
-    risk: "Medium",
-  },
-  {
-    id: "khype-hyperlend",
-    title: "KHype - Hyperlend Strategy",
-    subtitle: "Delta-neutral carry",
-    description:
-      "Deploys vault assets into carry trades while keeping health factor targets intact.",
-    focus: "Stable Carry",
-    asset: "USDC",
-    risk: "Low",
-  },
-];
+import { STRATEGIES } from "./strategies/constants";
+import { transformPositionsTable } from "./strategies/utils/transformers";
+import { RebalancingToggle } from "./strategies/components/RebalancingToggle";
+import { ActionButtons } from "./strategies/components/ActionButtons";
+import { ProcessingModal } from "./strategies/components/ProcessingModal";
+import { CompactMetric } from "./strategies/components/CompactMetric";
+import { MetricTile } from "./strategies/components/MetricTile";
+import type { ActionType, RebalancingType } from "./strategies/types";
 
 const Strategies: React.FC = () => {
-  const [selectedStrategyId, setSelectedStrategyId] = useState(STRATEGIES[0].id);
+  const [selectedStrategyId, setSelectedStrategyId] = useState(
+    STRATEGIES[0].id
+  );
+  const [selectedRebalancingType, setSelectedRebalancingType] =
+    useState<RebalancingType>("upside");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalActionType, setModalActionType] = useState<ActionType>("rebalance");
+  const [modalRebalancingType, setModalRebalancingType] =
+    useState<RebalancingType>(null);
 
   const {
     positions,
@@ -75,7 +37,6 @@ const Strategies: React.FC = () => {
 
   useEffect(() => {
     fetchCompleteState();
-    // We only need the full HyperLiquid snapshot once on mount.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -98,6 +59,28 @@ const Strategies: React.FC = () => {
     if (value === undefined || value === null) return "0.00%";
     return `${value.toFixed(2)}%`;
   };
+
+  const handleRebalance = () => {
+    if (!selectedRebalancingType) return;
+
+    setModalActionType("rebalance");
+    setModalRebalancingType(selectedRebalancingType);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseStrategy = () => {
+    setModalActionType("close");
+    setModalRebalancingType(null);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setModalActionType("rebalance");
+    setModalRebalancingType(null);
+  };
+
+  const canRebalance = selectedRebalancingType !== null;
 
   return (
     <div className="min-h-screen flex bg-[#101616] text-[#E6FFF6]">
@@ -124,10 +107,10 @@ const Strategies: React.FC = () => {
                 return (
                   <button
                     key={strategy.id}
-                    className={`text-left rounded-2xl border px-5 py-4 transition-all ${
+                    className={`text-left rounded-2xl border px-5 py-4 transition-all cursor-pointer ${
                       isSelected
                         ? "border-[#00FFB2] bg-gradient-to-br from-[#132020] to-[#0B1515] shadow-[0_0_20px_rgba(0,255,178,0.2)]"
-                        : "border-[#1A2323] bg-[#0D1515] hover:border-[#00FFB2]/40"
+                        : "border-[#1A2323] bg-[#0D1515] hover:border-[#00FFB2]/40 hover:bg-[#0F1717]"
                     }`}
                     onClick={() => setSelectedStrategyId(strategy.id)}
                   >
@@ -249,53 +232,17 @@ const Strategies: React.FC = () => {
             </div>
           </section>
 
-          <section className="bg-[#0B1212] rounded-3xl p-6 space-y-4">
-            <div className="flex items-center justify-between">
-              <h3 className="text-xl font-semibold">Positions in Execution</h3>
-              {hyperLiquidLoading && (
-                <span className="text-sm text-[#A3B8B0]">Syncing...</span>
-              )}
-            </div>
-            <div className="rounded-2xl border border-[#1A2323] overflow-hidden">
-              <table className="w-full text-left text-sm">
-                <thead className="bg-[#111818] text-[#A3B8B0]">
-                  <tr>
-                    <th className="px-4 py-3">Strategy</th>
-                    <th className="px-4 py-3">Coin</th>
-                    <th className="px-4 py-3">Size</th>
-                    <th className="px-4 py-3">Entry</th>
-                    <th className="px-4 py-3">Mark</th>
-                    <th className="px-4 py-3">PNL</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {hyperLiquidRows.length === 0 ? (
-                    <tr>
-                      <td
-                        colSpan={6}
-                        className="px-4 py-6 text-center text-[#A3B8B0]"
-                      >
-                        No live execution at the moment
-                      </td>
-                    </tr>
-                  ) : (
-                    hyperLiquidRows.map((row, idx) => (
-                      <tr
-                        key={`${row.coin}-exec-${idx}`}
-                        className="border-t border-[#1A2323] hover:bg-[#111818]"
-                      >
-                        <td className="px-4 py-3">Linked</td>
-                        <td className="px-4 py-3">{row.coin}</td>
-                        <td className="px-4 py-3">{row.size}</td>
-                        <td className="px-4 py-3">{row.entryPrice}</td>
-                        <td className="px-4 py-3">{row.markPrice}</td>
-                        <td className="px-4 py-3">{row.pnl}</td>
-                      </tr>
-                    ))
-                  )}
-                </tbody>
-              </table>
-            </div>
+          <section className="bg-[#0B1212] rounded-3xl p-6 space-y-6">
+            <RebalancingToggle
+              selectedType={selectedRebalancingType}
+              onTypeChange={setSelectedRebalancingType}
+            />
+            <ActionButtons
+              onRebalance={handleRebalance}
+              onCloseStrategy={handleCloseStrategy}
+              rebalanceDisabled={!canRebalance}
+              closeDisabled={false}
+            />
           </section>
 
           <section className="grid gap-4 md:grid-cols-3">
@@ -319,88 +266,17 @@ const Strategies: React.FC = () => {
               }
             />
           </section>
-
         </div>
+
+        <ProcessingModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          actionType={modalActionType}
+          rebalancingType={modalRebalancingType}
+        />
       </main>
     </div>
   );
 };
 
-interface HyperLiquidRow {
-  coin: string;
-  size: string;
-  entryPrice: string;
-  markPrice: string;
-  pnl: string;
-}
-
-const transformPositionsTable = (
-  positions: ClearinghouseState
-): HyperLiquidRow[] => {
-  if (!positions?.assetPositions?.length) return [];
-
-  return positions.assetPositions.map((position) => ({
-    coin: position.position?.coin ?? "-",
-    size: position.position?.szi
-      ? Math.abs(parseFloat(position.position.szi)).toFixed(4)
-      : "0.0000",
-    entryPrice: position.position?.entryPx
-      ? `$${parseFloat(position.position.entryPx).toFixed(2)}`
-      : "$0.00",
-    markPrice: position.position?.liquidationPx
-      ? `$${parseFloat(position.position.liquidationPx).toFixed(2)}`
-      : "$0.00",
-    pnl: position.position?.unrealizedPnl
-      ? `${parseFloat(position.position.unrealizedPnl) >= 0 ? "+" : ""}${parseFloat(
-          position.position.unrealizedPnl
-        ).toFixed(2)}`
-      : "+0.00",
-  }));
-};
-
-interface MetricTileProps {
-  label: string;
-  value: string;
-  highlight?: boolean;
-}
-
-const MetricTile: React.FC<MetricTileProps> = ({ label, value, highlight }) => (
-  <div className="rounded-2xl border border-[#1A2323] p-4">
-    <p className="text-sm text-[#A3B8B0]">{label}</p>
-    <p
-      className={`text-2xl font-semibold mt-2 ${
-        highlight ? "text-[#00FFB2]" : "text-[#E6FFF6]"
-      }`}
-    >
-      {value}
-    </p>
-  </div>
-);
-
-interface CompactMetricProps {
-  label: string;
-  value: string;
-  highlight?: boolean;
-}
-
-const CompactMetric: React.FC<CompactMetricProps> = ({
-  label,
-  value,
-  highlight,
-}) => (
-  <div className="flex flex-col gap-0.5">
-    <span className="text-[11px] uppercase tracking-wide text-[#7E8F89]">
-      {label}
-    </span>
-    <span
-      className={`text-sm font-semibold ${
-        highlight ? "text-[#00FFB2]" : "text-[#E6FFF6]"
-      }`}
-    >
-      {value}
-    </span>
-  </div>
-);
-
 export default Strategies;
-

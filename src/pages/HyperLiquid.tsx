@@ -101,7 +101,7 @@ const HyperLiquid: React.FC = () => {
         <button
           onClick={() => handleClosePosition(position.position)}
           disabled={isClosing}
-          className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition-colors disabled:opacity-50"
+          className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
         >
           {isClosing ? "Closing..." : "Close"}
         </button>
@@ -352,7 +352,7 @@ const HyperLiquid: React.FC = () => {
           {TABS.map((tab) => (
             <motion.button
               key={tab}
-              className={`px-4 py-2 text-base font-medium border-b-2 transition-colors whitespace-nowrap ${activeTab === tab
+              className={`px-4 py-2 text-base font-medium border-b-2 transition-colors whitespace-nowrap cursor-pointer ${activeTab === tab
                 ? "border-[#00FFB2] text-[#E6FFF6]"
                 : "border-transparent text-[#A3B8B0] hover:text-[#E6FFF6]"
                 }`}
