@@ -8,6 +8,7 @@ import StatCard from "./vault/components/StatCard";
 import type { CollateralRow } from "./vault/types";
 import { useVaultData } from "../hooks/useVaultData";
 
+
 const formatDateTime = (timestamp?: number) => {
   if (!timestamp) return "—";
   return new Date(timestamp * 1000).toLocaleString();
