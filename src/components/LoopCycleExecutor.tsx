@@ -150,7 +150,7 @@ const LoopCycleExecutor = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 backdrop-blur-sm bg-black/30 flex items-center justify-center z-50"
-            onClick={() => setIsModalOpen(false)}
+            onClick={() => !isLoading && setIsModalOpen(false)}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
@@ -215,12 +215,14 @@ const LoopCycleExecutor = () => {
                   ))}
                 </div>
 
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="mt-6 px-6 py-3 bg-[#1A2323] text-[#E6FFF6] rounded-lg hover:bg-[#2A3333] transition-colors cursor-pointer font-medium"
-                >
-                  Close
-                </button>
+                {!isLoading && (
+                  <button
+                    onClick={() => setIsModalOpen(false)}
+                    className="mt-6 px-6 py-3 bg-[#1A2323] text-[#E6FFF6] rounded-lg hover:bg-[#2A3333] transition-colors cursor-pointer font-medium"
+                  >
+                    Close
+                  </button>
+                )}
               </div>
             </motion.div>
           </motion.div>
