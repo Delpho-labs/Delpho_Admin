@@ -23,7 +23,7 @@ const HomeSidebar: React.FC = () => {
           {navItems.map((item) => (
             <button
               key={item.label}
-              className={`flex items-center gap-3 px-4 py-2 rounded-full text-left transition-colors text-lg hover:bg-[#1A2323] cursor-pointer`}
+              className={`flex items-center gap-3 px-4 py-2 rounded-full text-left transition-colors text-lg hover:bg-[#1A2323]`}
               onClick={() => navigate(item.path)}
             >
               <span className="w-5 h-5 flex items-center justify-center text-xl">
