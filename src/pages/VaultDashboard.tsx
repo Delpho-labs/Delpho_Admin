@@ -5,6 +5,12 @@ import { motion } from "framer-motion";
 import { useVaultData } from "../hooks/useVaultData";
 
 
+const formatDateTime = (timestamp?: number) => {
+  if (!timestamp) return "—";
+  return new Date(timestamp * 1000).toLocaleString();
+};
+
+
 const VaultDashboard: React.FC = () => {
   const { data, isLoading, error } = useVaultData();
 
