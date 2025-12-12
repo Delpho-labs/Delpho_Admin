@@ -31,19 +31,18 @@ export type UserPosition = {
     loanId: bigint
     liquidationPrice: bigint
     isLtvHealthy: boolean
-    stakedBalance: bigint;
+    stakedBalance: bigint
 }
 
-
 export interface UserMetrics {
-    userPosition: UserPosition | null;
-    isLoading: boolean;
-    error: Error | null;
+    userPosition: UserPosition | null
+    isLoading: boolean
+    error: Error | null
 }
 
 export type AssetInfo = {
-    address: string;
-    symbol: string;
-    name: string;
+    address: string
+    symbol: string
+    name: string
     decimals: number
 }

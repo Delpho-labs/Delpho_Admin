@@ -12,6 +12,10 @@ export const DELPHO_STABILITY_POOL_ADDRESS = "0xbA77397B3423D58c12791103B75802cf
 export const DELPHO_STAKER_ADDRESS = "0xc4E6274108CdDa9B65f5FfeC4b2F74B25D971072" as const
 export const DELPHO_VAULT_LENS_ADDRESS = "0xAEE61BB193Be11fd5d5B7D360fB9CD1165B98E58" as const
 
+export const WHYPE = "0x5555555555555555555555555555555555555555"
+export const KHYPE = "0xfD739d4e423301CE9385c1fb8850539D657C296D"
+export const UETH = "0xBe6727B535545C67d5cAa73dEa54865B92CF7907"
+
 export const ENCODING_VERSION = 1
 export const ACTION_IDS = {
     USDC_CLASS_TRANSFER: 7,
@@ -41,6 +45,7 @@ export const COIN_NAME_MAP: Record<string, string> = {
 }
 
 export const ASSET_MAP: Record<string, { symbol: string; name: string; decimals: number }> = {
-    "0x5555555555555555555555555555555555555555": { symbol: "WHYPE", name: "WHYPE", decimals: 18 },
-    "0xfD739d4e423301CE9385c1fb8850539D657C296D": { symbol: "KHYPE", name: "KHYPE", decimals: 18 },
+    [WHYPE.toLowerCase()]: { symbol: "WHYPE", name: "WHYPE", decimals: 18 },
+    [KHYPE.toLowerCase()]: { symbol: "KHYPE", name: "KHYPE", decimals: 18 },
+    [UETH.toLowerCase()]: { symbol: "UETH", name: "UETH", decimals: 18 },
 }

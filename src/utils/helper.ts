@@ -64,12 +64,21 @@ export function calculateHealthFactor(ltv: number, maxLtv: number = 65): number 
  */
 export function getAssetInfo(address: string): AssetInfo {
     const normalizedAddress = address.toLowerCase()
-    return (
-        ASSET_MAP[normalizedAddress] || {
+    const assetData = ASSET_MAP[normalizedAddress]
+
+    if (assetData) {
+        return {
             address: address,
-            symbol: "UNKNOWN",
-            name: "Unknown Asset",
-            decimals: 18,
+            symbol: assetData.symbol,
+            name: assetData.name,
+            decimals: assetData.decimals,
         }
-    )
+    }
+
+    return {
+        address: address,
+        symbol: "UNKNOWN",
+        name: "Unknown Asset",
+        decimals: 18,
+    }
 }
