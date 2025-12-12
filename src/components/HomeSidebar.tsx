@@ -1,52 +1,47 @@
-import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { FaTachometerAlt, FaChartBar, FaLock, FaShieldAlt } from "react-icons/fa";
+import React from "react"
+import { useNavigate, useLocation } from "react-router-dom"
+import { FaTachometerAlt, FaChartBar, FaLock, FaShieldAlt } from "react-icons/fa"
 
 const navItems = [
-  { label: "Overview", icon: <FaTachometerAlt />, path: "/overview" },
-  { label: "Strategies", icon: <FaChartBar />, path: "/strategies" },
-  { label: "Delpho Vault", icon: <FaLock />, path: "/vault" },
-  { label: "Stability Pool", icon: <FaShieldAlt />, path: "/stability" },
-];
+    { label: "Overview", icon: <FaTachometerAlt />, path: "/overview" },
+    { label: "Strategies", icon: <FaChartBar />, path: "/strategies" },
+    { label: "Delpho Vault", icon: <FaLock />, path: "/vault" },
+    { label: "Stability Pool", icon: <FaShieldAlt />, path: "/stability" },
+]
 
 const HomeSidebar: React.FC = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  return (
-    <aside className="w-64 bg-[#0B1212] flex flex-col justify-between py-6 px-4 min-h-screen max-h-screen overflow-y-auto sticky top-0">
-      <div>
-        <div className="flex items-center mb-10">
-          <span className="w-10 h-10 bg-[#1A2323] rounded-full flex items-center justify-center mr-3">
-            <span className="text-2xl font-bold">D</span>
-          </span>
-          <span className="text-2xl font-bold">Delpho Admin</span>
-        </div>
-        <nav className="flex flex-col gap-2">
-          {navItems.map((item) => {
-            const isActive =
-              location.pathname === item.path ||
-              (item.path === "/overview" && location.pathname === "/");
-            return (
-              <button
-                key={item.label}
-                className={`flex items-center gap-3 px-4 py-2 rounded-full text-left transition-colors text-lg cursor-pointer ${
-                  isActive
-                    ? "bg-[#E6FFF6] text-[#101616] font-semibold"
-                    : "hover:bg-[#1A2323] text-[#E6FFF6]"
-                }`}
-                onClick={() => navigate(item.path)}
-              >
-                <span className="w-5 h-5 flex items-center justify-center text-xl">
-                  {item.icon}
-                </span>
-                {item.label}
-              </button>
-            );
-          })}
-        </nav>
-      </div>
-    </aside>
-  );
-};
+    const navigate = useNavigate()
+    const location = useLocation()
+    return (
+        <aside className="w-64 bg-[#0B1212] flex flex-col justify-between py-6 px-4 min-h-screen max-h-screen overflow-y-auto sticky top-0">
+            <div>
+                <div className="flex items-center mb-10">
+                    <span className="w-10 h-10 bg-[#1A2323] rounded-full flex items-center justify-center mr-3">
+                        <span className="text-2xl font-bold">D</span>
+                    </span>
+                    <span className="text-2xl font-bold">Delpho Admin</span>
+                </div>
+                <nav className="flex flex-col gap-2">
+                    {navItems.map((item) => {
+                        const isActive =
+                            location.pathname === item.path || (item.path === "/overview" && location.pathname === "/")
+                        return (
+                            <button
+                                key={item.label}
+                                className={`flex items-center gap-3 px-4 py-2 rounded-full text-left transition-colors text-lg cursor-pointer ${
+                                    isActive ? "bg-[#E6FFF6] text-[#101616] font-semibold" : "hover:bg-[#1A2323] text-[#E6FFF6]"
+                                }`}
+                                onClick={() => navigate(item.path)}
+                            >
+                                <span className="w-5 h-5 flex items-center justify-center text-xl">{item.icon}</span>
+                                {item.label}
+                            </button>
+                        )
+                    })}
+                </nav>
+            </div>
+        </aside>
+    )
+}
 
-export default HomeSidebar;
+export default HomeSidebar

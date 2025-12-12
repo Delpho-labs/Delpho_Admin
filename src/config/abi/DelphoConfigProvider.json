@@ -1,2883 +1,2883 @@
 [
-        {
-            "type": "constructor",
-            "inputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "DEFAULT_ADMIN_ROLE",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "EXECUTOR_ROLE",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "UPGRADE_INTERFACE_VERSION",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "string",
-                    "internalType": "string"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "_tokenConfigs",
-            "inputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "enabled",
-                    "type": "bool",
-                    "internalType": "bool"
-                },
-                {
-                    "name": "priceId",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "decimals",
-                    "type": "uint8",
-                    "internalType": "uint8"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "actionIdAddApiWallet",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint24",
-                    "internalType": "uint24"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "actionIdCancelByOid",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint24",
-                    "internalType": "uint24"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "actionIdLimitOrder",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint24",
-                    "internalType": "uint24"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "actionIdSpotSend",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint24",
-                    "internalType": "uint24"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "actionIdUsdcClassTransfer",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint24",
-                    "internalType": "uint24"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "addToken",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "priceId",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "borrowFeeBps",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "bufferBps",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "coreWriterAddress",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "debtVariableAsset",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "defaultStalenessAge",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint48",
-                    "internalType": "uint48"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "delphoOracle",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "delphoRouter",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "delphoSortedDebts",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "delphoStabilityPool",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "delphoStable",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "delphoStaker",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "delphoVault",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "delphoVaultLens",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "disableToken",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "encodingVersion",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint8",
-                    "internalType": "uint8"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "executorBps",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "fallbackRedeemPortionBps",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "feeReceiver",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "flashloanFee",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "getAllSupportedTokens",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address[]",
-                    "internalType": "address[]"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "getDelphoContracts",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "tuple",
-                    "internalType": "struct DelphoContracts",
-                    "components": [
-                        {
-                            "name": "delphoVault",
-                            "type": "address",
-                            "internalType": "address"
-                        },
-                        {
-                            "name": "delphoStable",
-                            "type": "address",
-                            "internalType": "address"
-                        },
-                        {
-                            "name": "delphoStaker",
-                            "type": "address",
-                            "internalType": "address"
-                        },
-                        {
-                            "name": "delphoRouter",
-                            "type": "address",
-                            "internalType": "address"
-                        },
-                        {
-                            "name": "delphoOracle",
-                            "type": "address",
-                            "internalType": "address"
-                        },
-                        {
-                            "name": "delphoStabilityPool",
-                            "type": "address",
-                            "internalType": "address"
-                        },
-                        {
-                            "name": "delphoSortedDebts",
-                            "type": "address",
-                            "internalType": "address"
-                        }
-                    ]
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "getRedemptionConfig",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "config",
-                    "type": "tuple",
-                    "internalType": "struct RedemptionConfig",
-                    "components": [
-                        {
-                            "name": "minSingleRedemption",
-                            "type": "uint256",
-                            "internalType": "uint256"
-                        },
-                        {
-                            "name": "maxSingleRedemption",
-                            "type": "uint256",
-                            "internalType": "uint256"
-                        },
-                        {
-                            "name": "maxDailyRedemption",
-                            "type": "uint256",
-                            "internalType": "uint256"
-                        },
-                        {
-                            "name": "redemptionFeeBps",
-                            "type": "uint256",
-                            "internalType": "uint256"
-                        }
-                    ]
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "getRoleAdmin",
-            "inputs": [
-                {
-                    "name": "role",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "getTokenConfig",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "tuple",
-                    "internalType": "struct TokenConfig",
-                    "components": [
-                        {
-                            "name": "enabled",
-                            "type": "bool",
-                            "internalType": "bool"
-                        },
-                        {
-                            "name": "priceId",
-                            "type": "bytes32",
-                            "internalType": "bytes32"
-                        },
-                        {
-                            "name": "decimals",
-                            "type": "uint8",
-                            "internalType": "uint8"
-                        }
-                    ]
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "getTokenCount",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "gluexRouter",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "grantRole",
-            "inputs": [
-                {
-                    "name": "role",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "account",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "hYieldAsset",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "handlerRole",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "hasRole",
-            "inputs": [
-                {
-                    "name": "role",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "account",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "bool",
-                    "internalType": "bool"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "hedgeExecutorRole",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "hypePerpId",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint32",
-                    "internalType": "uint32"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "hypeToken",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "hyperLoop",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "hyperlendPool",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "initialize",
-            "inputs": [
-                {
-                    "name": "_protocolAdmin",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "_hypeToken",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "_pyth",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "_feeReceiver",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "_swapper",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "_hyperlendPool",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "_hyperLoop",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "isTokenSupported",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "bool",
-                    "internalType": "bool"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "liquidationMintBps",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "liquidationPenaltyBps",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "liquidationThresholdBps",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "liquidatorRewardBps",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "longSizeInBps",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "maxBps",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "maxDailyRedemption",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "maxLiquidatorFee",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "maxLtvBps",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "maxSingleRedemption",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "maxSupplyCap",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "cap",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "minBorrow",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "minDepositAmount",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "amount",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "minSingleRedemption",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "onDelphoConfigProviderUpdate",
-            "inputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "bytes4",
-                    "internalType": "bytes4"
-                }
-            ],
-            "stateMutability": "pure"
-        },
-        {
-            "type": "function",
-            "name": "platformFeeBps",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "proxiableUUID",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "pyth",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "redemptionFeeBps",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "renounceRole",
-            "inputs": [
-                {
-                    "name": "role",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "callerConfirmation",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "revokeRole",
-            "inputs": [
-                {
-                    "name": "role",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "account",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "rewardDistributor",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "roundDuration",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint48",
-                    "internalType": "uint48"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "secondsInYear",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "setBorrowFeeBps",
-            "inputs": [
-                {
-                    "name": "_borrowFeeBps",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setBufferAllocation",
-            "inputs": [
-                {
-                    "name": "_bufferBps",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setDefaultStalenessAge",
-            "inputs": [
-                {
-                    "name": "age",
-                    "type": "uint48",
-                    "internalType": "uint48"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setDelphoOracle",
-            "inputs": [
-                {
-                    "name": "_delphoOracle",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setDelphoRouter",
-            "inputs": [
-                {
-                    "name": "_delphoRouter",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setDelphoSortedDebts",
-            "inputs": [
-                {
-                    "name": "_delphoSortedDebts",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setDelphoStabilityPool",
-            "inputs": [
-                {
-                    "name": "_delphoStabilityPool",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setDelphoStable",
-            "inputs": [
-                {
-                    "name": "_delphoStable",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setDelphoStaker",
-            "inputs": [
-                {
-                    "name": "_delphoStaker",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setDelphoVault",
-            "inputs": [
-                {
-                    "name": "_delphoVault",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setDelphoVaultLens",
-            "inputs": [
-                {
-                    "name": "_delphoVaultLens",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setExecutorAllocation",
-            "inputs": [
-                {
-                    "name": "_executorBps",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setFallbackRedeemPortionBps",
-            "inputs": [
-                {
-                    "name": "bps",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setFeeReceiver",
-            "inputs": [
-                {
-                    "name": "_feeReceiver",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setHypeToken",
-            "inputs": [
-                {
-                    "name": "_hypeToken",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setHyperLoop",
-            "inputs": [
-                {
-                    "name": "_hyperLoop",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setHyperlendPool",
-            "inputs": [
-                {
-                    "name": "_hyperlendPool",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setLiquidationMintBps",
-            "inputs": [
-                {
-                    "name": "_liquidationMintBps",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setLiquidationThresholdBps",
-            "inputs": [
-                {
-                    "name": "_liquidationThresholdBps",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setMaxDailyRedemption",
-            "inputs": [
-                {
-                    "name": "_maxDailyRedemption",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setMaxLiquidationFee",
-            "inputs": [
-                {
-                    "name": "maxFee",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setMaxLtvBps",
-            "inputs": [
-                {
-                    "name": "_maxLtvBps",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setMaxSingleRedemption",
-            "inputs": [
-                {
-                    "name": "_maxSingleRedemption",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setMaxSupplyCap",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "supplyCap",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setMinBorrow",
-            "inputs": [
-                {
-                    "name": "_minBorrow",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setMinSingleRedemption",
-            "inputs": [
-                {
-                    "name": "_minSingleRedemption",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setMinimumDepositAmount",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "amount",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setPlatformFeeBps",
-            "inputs": [
-                {
-                    "name": "_platformFeeBps",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setPythAddress",
-            "inputs": [
-                {
-                    "name": "_pyth",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setRedemptionFeeBps",
-            "inputs": [
-                {
-                    "name": "_redemptionFeeBps",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setRewardDistributor",
-            "inputs": [
-                {
-                    "name": "_rewardDistributor",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setRoundDuration",
-            "inputs": [
-                {
-                    "name": "_roundDuration",
-                    "type": "uint48",
-                    "internalType": "uint48"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setStakeShare",
-            "inputs": [
-                {
-                    "name": "_stakeShare",
-                    "type": "uint16",
-                    "internalType": "uint16"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setSwapper",
-            "inputs": [
-                {
-                    "name": "_swapper",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setTokenStalenessAge",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "stalenessAge",
-                    "type": "uint48",
-                    "internalType": "uint48"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setTreasury",
-            "inputs": [
-                {
-                    "name": "_treasury",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setTreasuryShare",
-            "inputs": [
-                {
-                    "name": "_treasuryShare",
-                    "type": "uint16",
-                    "internalType": "uint16"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setWithdrawFeeBps",
-            "inputs": [
-                {
-                    "name": "_newFee",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setWithdrawalCutoff",
-            "inputs": [
-                {
-                    "name": "_cutoff",
-                    "type": "uint48",
-                    "internalType": "uint48"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setWithdrawalWaitRounds",
-            "inputs": [
-                {
-                    "name": "_waitRounds",
-                    "type": "uint48",
-                    "internalType": "uint48"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "shortLeverage",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "shortSizeInBps",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "stakeShare",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint16",
-                    "internalType": "uint16"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "supportedTokens",
-            "inputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "supportsInterface",
-            "inputs": [
-                {
-                    "name": "interfaceId",
-                    "type": "bytes4",
-                    "internalType": "bytes4"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "bool",
-                    "internalType": "bool"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "swapper",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "tokenStalenessAge",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "stalenessAge",
-                    "type": "uint48",
-                    "internalType": "uint48"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "treasury",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "treasuryShare",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint16",
-                    "internalType": "uint16"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "updateFlashLoanFee",
-            "inputs": [
-                {
-                    "name": "loanFee",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "updateGlueXRouter",
-            "inputs": [
-                {
-                    "name": "newRouter",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "updateLongSize",
-            "inputs": [
-                {
-                    "name": "szInBps",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "updateOpenShortLeverage",
-            "inputs": [
-                {
-                    "name": "lev",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "updateShortSize",
-            "inputs": [
-                {
-                    "name": "szInBps",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "updateToken",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "enabled",
-                    "type": "bool",
-                    "internalType": "bool"
-                },
-                {
-                    "name": "priceId",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "upgradeToAndCall",
-            "inputs": [
-                {
-                    "name": "newImplementation",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "data",
-                    "type": "bytes",
-                    "internalType": "bytes"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "payable"
-        },
-        {
-            "type": "function",
-            "name": "usdt",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "usdtSystemAddress",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "usdtToken",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint64",
-                    "internalType": "uint64"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "usdtUsdcSpot",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint32",
-                    "internalType": "uint32"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "usdtUsdcSpotId",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint32",
-                    "internalType": "uint32"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "wHype",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "withdrawFeeBps",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "withdrawalRequestCutoff",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint48",
-                    "internalType": "uint48"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "withdrawalWaitRounds",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint48",
-                    "internalType": "uint48"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "event",
-            "name": "BorrowFeeUpdated",
-            "inputs": [
-                {
-                    "name": "newFee",
-                    "type": "uint256",
-                    "indexed": false,
-                    "internalType": "uint256"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "BufferAllocationUpdated",
-            "inputs": [
-                {
-                    "name": "newAllocation",
-                    "type": "uint256",
-                    "indexed": false,
-                    "internalType": "uint256"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "DefaultStalenessAgeUpdated",
-            "inputs": [
-                {
-                    "name": "newAge",
-                    "type": "uint48",
-                    "indexed": false,
-                    "internalType": "uint48"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "DelphoOracleUpdated",
-            "inputs": [
-                {
-                    "name": "newOracle",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "DelphoRouterUpdated",
-            "inputs": [
-                {
-                    "name": "newRouter",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "DelphoSortedDebtsUpdated",
-            "inputs": [
-                {
-                    "name": "delphoSortedDebts",
-                    "type": "address",
-                    "indexed": true,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "DelphoStabilityPoolUpdated",
-            "inputs": [
-                {
-                    "name": "newStabilityPool",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "DelphoStableUpdated",
-            "inputs": [
-                {
-                    "name": "newDelphoStable",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "DelphoStakerUpdated",
-            "inputs": [
-                {
-                    "name": "newStaker",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "DelphoVaultLensUpdated",
-            "inputs": [
-                {
-                    "name": "newStaker",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "DelphoVaultUpdated",
-            "inputs": [
-                {
-                    "name": "delphoVault",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "ExecutorAllocationUpdated",
-            "inputs": [
-                {
-                    "name": "newAllocation",
-                    "type": "uint256",
-                    "indexed": false,
-                    "internalType": "uint256"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "FeeReceiverUpdated",
-            "inputs": [
-                {
-                    "name": "newReceiver",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "HedgeExecutorUpdated",
-            "inputs": [
-                {
-                    "name": "newHedgeExecutor",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "HypeTokenUpdated",
-            "inputs": [
-                {
-                    "name": "newHypeToken",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "HyperLoopUpdated",
-            "inputs": [
-                {
-                    "name": "hyperLoop",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "HyperlendPoolUpdated",
-            "inputs": [
-                {
-                    "name": "hyperlendPool",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "Initialized",
-            "inputs": [
-                {
-                    "name": "version",
-                    "type": "uint64",
-                    "indexed": false,
-                    "internalType": "uint64"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "LiquidationMintBpsUpdated",
-            "inputs": [
-                {
-                    "name": "liquidationMintBps",
-                    "type": "uint256",
-                    "indexed": false,
-                    "internalType": "uint256"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "LiquidationThresholdUpdated",
-            "inputs": [
-                {
-                    "name": "newThreshold",
-                    "type": "uint256",
-                    "indexed": false,
-                    "internalType": "uint256"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "MaxDailyRedemptionUpdated",
-            "inputs": [
-                {
-                    "name": "newMaxDailyRedemption",
-                    "type": "uint256",
-                    "indexed": false,
-                    "internalType": "uint256"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "MaxLTVUpdated",
-            "inputs": [
-                {
-                    "name": "newLtv",
-                    "type": "uint256",
-                    "indexed": false,
-                    "internalType": "uint256"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "MaxLiquidatorFeeUpdated",
-            "inputs": [
-                {
-                    "name": "maxFee",
-                    "type": "uint256",
-                    "indexed": false,
-                    "internalType": "uint256"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "MaxSingleRedemptionUpdated",
-            "inputs": [
-                {
-                    "name": "newMaxSingleRedemption",
-                    "type": "uint256",
-                    "indexed": false,
-                    "internalType": "uint256"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "MinBorrowUpdated",
-            "inputs": [
-                {
-                    "name": "newMinBorrow",
-                    "type": "uint256",
-                    "indexed": false,
-                    "internalType": "uint256"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "MinSingleRedemptionUpdated",
-            "inputs": [
-                {
-                    "name": "newMinSingleRedemption",
-                    "type": "uint256",
-                    "indexed": false,
-                    "internalType": "uint256"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "MinimumDepositUpdated",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                },
-                {
-                    "name": "amount",
-                    "type": "uint256",
-                    "indexed": false,
-                    "internalType": "uint256"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "PlatformFeeUpdated",
-            "inputs": [
-                {
-                    "name": "newFee",
-                    "type": "uint256",
-                    "indexed": false,
-                    "internalType": "uint256"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "PythAddressUpdated",
-            "inputs": [
-                {
-                    "name": "newPyth",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "RedemptionFeeBpsUpdated",
-            "inputs": [
-                {
-                    "name": "newRedemptionFeeBps",
-                    "type": "uint256",
-                    "indexed": false,
-                    "internalType": "uint256"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "RewardDistributorUpdated",
-            "inputs": [
-                {
-                    "name": "rewardDistributor",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "RoleAdminChanged",
-            "inputs": [
-                {
-                    "name": "role",
-                    "type": "bytes32",
-                    "indexed": true,
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "previousAdminRole",
-                    "type": "bytes32",
-                    "indexed": true,
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "newAdminRole",
-                    "type": "bytes32",
-                    "indexed": true,
-                    "internalType": "bytes32"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "RoleGranted",
-            "inputs": [
-                {
-                    "name": "role",
-                    "type": "bytes32",
-                    "indexed": true,
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "account",
-                    "type": "address",
-                    "indexed": true,
-                    "internalType": "address"
-                },
-                {
-                    "name": "sender",
-                    "type": "address",
-                    "indexed": true,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "RoleRevoked",
-            "inputs": [
-                {
-                    "name": "role",
-                    "type": "bytes32",
-                    "indexed": true,
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "account",
-                    "type": "address",
-                    "indexed": true,
-                    "internalType": "address"
-                },
-                {
-                    "name": "sender",
-                    "type": "address",
-                    "indexed": true,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "RoundDurationUpdated",
-            "inputs": [
-                {
-                    "name": "newDuration",
-                    "type": "uint48",
-                    "indexed": false,
-                    "internalType": "uint48"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "StakeShareUpdated",
-            "inputs": [
-                {
-                    "name": "stakeShare",
-                    "type": "uint16",
-                    "indexed": false,
-                    "internalType": "uint16"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "SupplyCapUpdated",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                },
-                {
-                    "name": "supplyCap",
-                    "type": "uint256",
-                    "indexed": false,
-                    "internalType": "uint256"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "SwapperUpdated",
-            "inputs": [
-                {
-                    "name": "swapper",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "TokenAdded",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "indexed": true,
-                    "internalType": "address"
-                },
-                {
-                    "name": "priceId",
-                    "type": "bytes32",
-                    "indexed": false,
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "decimals",
-                    "type": "uint8",
-                    "indexed": false,
-                    "internalType": "uint8"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "TokenDisabled",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "indexed": true,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "TokenStaleAgeUpdated",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                },
-                {
-                    "name": "stalenessAge",
-                    "type": "uint48",
-                    "indexed": false,
-                    "internalType": "uint48"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "TokenUpdated",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "indexed": true,
-                    "internalType": "address"
-                },
-                {
-                    "name": "enabled",
-                    "type": "bool",
-                    "indexed": false,
-                    "internalType": "bool"
-                },
-                {
-                    "name": "priceId",
-                    "type": "bytes32",
-                    "indexed": false,
-                    "internalType": "bytes32"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "TreasuryShareUpdated",
-            "inputs": [
-                {
-                    "name": "treasuryShare",
-                    "type": "uint16",
-                    "indexed": false,
-                    "internalType": "uint16"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "TreasuryUpdated",
-            "inputs": [
-                {
-                    "name": "treasury",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "Upgraded",
-            "inputs": [
-                {
-                    "name": "implementation",
-                    "type": "address",
-                    "indexed": true,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "WithdrawFeeBpsUpdated",
-            "inputs": [
-                {
-                    "name": "newFee",
-                    "type": "uint256",
-                    "indexed": false,
-                    "internalType": "uint256"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "WithdrawalCutoffUpdated",
-            "inputs": [
-                {
-                    "name": "newCutoff",
-                    "type": "uint48",
-                    "indexed": false,
-                    "internalType": "uint48"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "WithdrawalWaitRoundsUpdated",
-            "inputs": [
-                {
-                    "name": "newWaitRounds",
-                    "type": "uint48",
-                    "indexed": false,
-                    "internalType": "uint48"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "error",
-            "name": "AccessControlBadConfirmation",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "AccessControlUnauthorizedAccount",
-            "inputs": [
-                {
-                    "name": "account",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "neededRole",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                }
-            ]
-        },
-        {
-            "type": "error",
-            "name": "AddressEmptyCode",
-            "inputs": [
-                {
-                    "name": "target",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ]
-        },
-        {
-            "type": "error",
-            "name": "DCP_INVALID_ADDRESS",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DCP_TokenNotSupported",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DHCC_INVALID_ADDRESS",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DOC_InvalidAddress",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DRC_InvalidFeeBps",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DRC_InvalidRedemptionAmount",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DRC_InvalidRedemptionBps",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DRDCP_INVALID_ADDRESS",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DRDCP_INVALID_SHARES",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DTC_InvalidAddress",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DTC_InvalidPriceId",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DTC_TokenAlreadyDisabled",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DTC_TokenAlreadyExists",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DTC_TokenNotFound",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DVC_INVALID_ADDRESS",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DVC_INVALID_AMOUNT",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DVC_InvalidAllocation",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DVC_UNIMPLEMENTATED",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "ERC1967InvalidImplementation",
-            "inputs": [
-                {
-                    "name": "implementation",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ]
-        },
-        {
-            "type": "error",
-            "name": "ERC1967NonPayable",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "FailedCall",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "InvalidInitialization",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "NotInitializing",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "UUPSUnauthorizedCallContext",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "UUPSUnsupportedProxiableUUID",
-            "inputs": [
-                {
-                    "name": "slot",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                }
-            ]
-        }
-    ]
+    {
+        "type": "constructor",
+        "inputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "DEFAULT_ADMIN_ROLE",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "EXECUTOR_ROLE",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "UPGRADE_INTERFACE_VERSION",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "string",
+                "internalType": "string"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "_tokenConfigs",
+        "inputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "enabled",
+                "type": "bool",
+                "internalType": "bool"
+            },
+            {
+                "name": "priceId",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            },
+            {
+                "name": "decimals",
+                "type": "uint8",
+                "internalType": "uint8"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "actionIdAddApiWallet",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint24",
+                "internalType": "uint24"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "actionIdCancelByOid",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint24",
+                "internalType": "uint24"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "actionIdLimitOrder",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint24",
+                "internalType": "uint24"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "actionIdSpotSend",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint24",
+                "internalType": "uint24"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "actionIdUsdcClassTransfer",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint24",
+                "internalType": "uint24"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "addToken",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "priceId",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "borrowFeeBps",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "bufferBps",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "coreWriterAddress",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "debtVariableAsset",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "defaultStalenessAge",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint48",
+                "internalType": "uint48"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "delphoOracle",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "delphoRouter",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "delphoSortedDebts",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "delphoStabilityPool",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "delphoStable",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "delphoStaker",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "delphoVault",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "delphoVaultLens",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "disableToken",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "encodingVersion",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint8",
+                "internalType": "uint8"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "executorBps",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "fallbackRedeemPortionBps",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "feeReceiver",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "flashloanFee",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "getAllSupportedTokens",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address[]",
+                "internalType": "address[]"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "getDelphoContracts",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "tuple",
+                "internalType": "struct DelphoContracts",
+                "components": [
+                    {
+                        "name": "delphoVault",
+                        "type": "address",
+                        "internalType": "address"
+                    },
+                    {
+                        "name": "delphoStable",
+                        "type": "address",
+                        "internalType": "address"
+                    },
+                    {
+                        "name": "delphoStaker",
+                        "type": "address",
+                        "internalType": "address"
+                    },
+                    {
+                        "name": "delphoRouter",
+                        "type": "address",
+                        "internalType": "address"
+                    },
+                    {
+                        "name": "delphoOracle",
+                        "type": "address",
+                        "internalType": "address"
+                    },
+                    {
+                        "name": "delphoStabilityPool",
+                        "type": "address",
+                        "internalType": "address"
+                    },
+                    {
+                        "name": "delphoSortedDebts",
+                        "type": "address",
+                        "internalType": "address"
+                    }
+                ]
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "getRedemptionConfig",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "config",
+                "type": "tuple",
+                "internalType": "struct RedemptionConfig",
+                "components": [
+                    {
+                        "name": "minSingleRedemption",
+                        "type": "uint256",
+                        "internalType": "uint256"
+                    },
+                    {
+                        "name": "maxSingleRedemption",
+                        "type": "uint256",
+                        "internalType": "uint256"
+                    },
+                    {
+                        "name": "maxDailyRedemption",
+                        "type": "uint256",
+                        "internalType": "uint256"
+                    },
+                    {
+                        "name": "redemptionFeeBps",
+                        "type": "uint256",
+                        "internalType": "uint256"
+                    }
+                ]
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "getRoleAdmin",
+        "inputs": [
+            {
+                "name": "role",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "getTokenConfig",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "tuple",
+                "internalType": "struct TokenConfig",
+                "components": [
+                    {
+                        "name": "enabled",
+                        "type": "bool",
+                        "internalType": "bool"
+                    },
+                    {
+                        "name": "priceId",
+                        "type": "bytes32",
+                        "internalType": "bytes32"
+                    },
+                    {
+                        "name": "decimals",
+                        "type": "uint8",
+                        "internalType": "uint8"
+                    }
+                ]
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "getTokenCount",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "gluexRouter",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "grantRole",
+        "inputs": [
+            {
+                "name": "role",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            },
+            {
+                "name": "account",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "hYieldAsset",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "handlerRole",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "hasRole",
+        "inputs": [
+            {
+                "name": "role",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            },
+            {
+                "name": "account",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool",
+                "internalType": "bool"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "hedgeExecutorRole",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "hypePerpId",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint32",
+                "internalType": "uint32"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "hypeToken",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "hyperLoop",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "hyperlendPool",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "initialize",
+        "inputs": [
+            {
+                "name": "_protocolAdmin",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "_hypeToken",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "_pyth",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "_feeReceiver",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "_swapper",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "_hyperlendPool",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "_hyperLoop",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "isTokenSupported",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool",
+                "internalType": "bool"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "liquidationMintBps",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "liquidationPenaltyBps",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "liquidationThresholdBps",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "liquidatorRewardBps",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "longSizeInBps",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "maxBps",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "maxDailyRedemption",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "maxLiquidatorFee",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "maxLtvBps",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "maxSingleRedemption",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "maxSupplyCap",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "cap",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "minBorrow",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "minDepositAmount",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "minSingleRedemption",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "onDelphoConfigProviderUpdate",
+        "inputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bytes4",
+                "internalType": "bytes4"
+            }
+        ],
+        "stateMutability": "pure"
+    },
+    {
+        "type": "function",
+        "name": "platformFeeBps",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "proxiableUUID",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "pyth",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "redemptionFeeBps",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "renounceRole",
+        "inputs": [
+            {
+                "name": "role",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            },
+            {
+                "name": "callerConfirmation",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "revokeRole",
+        "inputs": [
+            {
+                "name": "role",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            },
+            {
+                "name": "account",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "rewardDistributor",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "roundDuration",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint48",
+                "internalType": "uint48"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "secondsInYear",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "setBorrowFeeBps",
+        "inputs": [
+            {
+                "name": "_borrowFeeBps",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setBufferAllocation",
+        "inputs": [
+            {
+                "name": "_bufferBps",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setDefaultStalenessAge",
+        "inputs": [
+            {
+                "name": "age",
+                "type": "uint48",
+                "internalType": "uint48"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setDelphoOracle",
+        "inputs": [
+            {
+                "name": "_delphoOracle",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setDelphoRouter",
+        "inputs": [
+            {
+                "name": "_delphoRouter",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setDelphoSortedDebts",
+        "inputs": [
+            {
+                "name": "_delphoSortedDebts",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setDelphoStabilityPool",
+        "inputs": [
+            {
+                "name": "_delphoStabilityPool",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setDelphoStable",
+        "inputs": [
+            {
+                "name": "_delphoStable",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setDelphoStaker",
+        "inputs": [
+            {
+                "name": "_delphoStaker",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setDelphoVault",
+        "inputs": [
+            {
+                "name": "_delphoVault",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setDelphoVaultLens",
+        "inputs": [
+            {
+                "name": "_delphoVaultLens",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setExecutorAllocation",
+        "inputs": [
+            {
+                "name": "_executorBps",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setFallbackRedeemPortionBps",
+        "inputs": [
+            {
+                "name": "bps",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setFeeReceiver",
+        "inputs": [
+            {
+                "name": "_feeReceiver",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setHypeToken",
+        "inputs": [
+            {
+                "name": "_hypeToken",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setHyperLoop",
+        "inputs": [
+            {
+                "name": "_hyperLoop",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setHyperlendPool",
+        "inputs": [
+            {
+                "name": "_hyperlendPool",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setLiquidationMintBps",
+        "inputs": [
+            {
+                "name": "_liquidationMintBps",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setLiquidationThresholdBps",
+        "inputs": [
+            {
+                "name": "_liquidationThresholdBps",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setMaxDailyRedemption",
+        "inputs": [
+            {
+                "name": "_maxDailyRedemption",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setMaxLiquidationFee",
+        "inputs": [
+            {
+                "name": "maxFee",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setMaxLtvBps",
+        "inputs": [
+            {
+                "name": "_maxLtvBps",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setMaxSingleRedemption",
+        "inputs": [
+            {
+                "name": "_maxSingleRedemption",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setMaxSupplyCap",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "supplyCap",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setMinBorrow",
+        "inputs": [
+            {
+                "name": "_minBorrow",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setMinSingleRedemption",
+        "inputs": [
+            {
+                "name": "_minSingleRedemption",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setMinimumDepositAmount",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setPlatformFeeBps",
+        "inputs": [
+            {
+                "name": "_platformFeeBps",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setPythAddress",
+        "inputs": [
+            {
+                "name": "_pyth",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setRedemptionFeeBps",
+        "inputs": [
+            {
+                "name": "_redemptionFeeBps",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setRewardDistributor",
+        "inputs": [
+            {
+                "name": "_rewardDistributor",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setRoundDuration",
+        "inputs": [
+            {
+                "name": "_roundDuration",
+                "type": "uint48",
+                "internalType": "uint48"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setStakeShare",
+        "inputs": [
+            {
+                "name": "_stakeShare",
+                "type": "uint16",
+                "internalType": "uint16"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setSwapper",
+        "inputs": [
+            {
+                "name": "_swapper",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setTokenStalenessAge",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "stalenessAge",
+                "type": "uint48",
+                "internalType": "uint48"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setTreasury",
+        "inputs": [
+            {
+                "name": "_treasury",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setTreasuryShare",
+        "inputs": [
+            {
+                "name": "_treasuryShare",
+                "type": "uint16",
+                "internalType": "uint16"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setWithdrawFeeBps",
+        "inputs": [
+            {
+                "name": "_newFee",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setWithdrawalCutoff",
+        "inputs": [
+            {
+                "name": "_cutoff",
+                "type": "uint48",
+                "internalType": "uint48"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setWithdrawalWaitRounds",
+        "inputs": [
+            {
+                "name": "_waitRounds",
+                "type": "uint48",
+                "internalType": "uint48"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "shortLeverage",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "shortSizeInBps",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "stakeShare",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint16",
+                "internalType": "uint16"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "supportedTokens",
+        "inputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "supportsInterface",
+        "inputs": [
+            {
+                "name": "interfaceId",
+                "type": "bytes4",
+                "internalType": "bytes4"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool",
+                "internalType": "bool"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "swapper",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "tokenStalenessAge",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "stalenessAge",
+                "type": "uint48",
+                "internalType": "uint48"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "treasury",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "treasuryShare",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint16",
+                "internalType": "uint16"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "updateFlashLoanFee",
+        "inputs": [
+            {
+                "name": "loanFee",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "updateGlueXRouter",
+        "inputs": [
+            {
+                "name": "newRouter",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "updateLongSize",
+        "inputs": [
+            {
+                "name": "szInBps",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "updateOpenShortLeverage",
+        "inputs": [
+            {
+                "name": "lev",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "updateShortSize",
+        "inputs": [
+            {
+                "name": "szInBps",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "updateToken",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "enabled",
+                "type": "bool",
+                "internalType": "bool"
+            },
+            {
+                "name": "priceId",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "upgradeToAndCall",
+        "inputs": [
+            {
+                "name": "newImplementation",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "data",
+                "type": "bytes",
+                "internalType": "bytes"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+    },
+    {
+        "type": "function",
+        "name": "usdt",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "usdtSystemAddress",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "usdtToken",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint64",
+                "internalType": "uint64"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "usdtUsdcSpot",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint32",
+                "internalType": "uint32"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "usdtUsdcSpotId",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint32",
+                "internalType": "uint32"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "wHype",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "withdrawFeeBps",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "withdrawalRequestCutoff",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint48",
+                "internalType": "uint48"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "withdrawalWaitRounds",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint48",
+                "internalType": "uint48"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "event",
+        "name": "BorrowFeeUpdated",
+        "inputs": [
+            {
+                "name": "newFee",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "BufferAllocationUpdated",
+        "inputs": [
+            {
+                "name": "newAllocation",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "DefaultStalenessAgeUpdated",
+        "inputs": [
+            {
+                "name": "newAge",
+                "type": "uint48",
+                "indexed": false,
+                "internalType": "uint48"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "DelphoOracleUpdated",
+        "inputs": [
+            {
+                "name": "newOracle",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "DelphoRouterUpdated",
+        "inputs": [
+            {
+                "name": "newRouter",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "DelphoSortedDebtsUpdated",
+        "inputs": [
+            {
+                "name": "delphoSortedDebts",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "DelphoStabilityPoolUpdated",
+        "inputs": [
+            {
+                "name": "newStabilityPool",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "DelphoStableUpdated",
+        "inputs": [
+            {
+                "name": "newDelphoStable",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "DelphoStakerUpdated",
+        "inputs": [
+            {
+                "name": "newStaker",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "DelphoVaultLensUpdated",
+        "inputs": [
+            {
+                "name": "newStaker",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "DelphoVaultUpdated",
+        "inputs": [
+            {
+                "name": "delphoVault",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "ExecutorAllocationUpdated",
+        "inputs": [
+            {
+                "name": "newAllocation",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "FeeReceiverUpdated",
+        "inputs": [
+            {
+                "name": "newReceiver",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "HedgeExecutorUpdated",
+        "inputs": [
+            {
+                "name": "newHedgeExecutor",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "HypeTokenUpdated",
+        "inputs": [
+            {
+                "name": "newHypeToken",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "HyperLoopUpdated",
+        "inputs": [
+            {
+                "name": "hyperLoop",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "HyperlendPoolUpdated",
+        "inputs": [
+            {
+                "name": "hyperlendPool",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "Initialized",
+        "inputs": [
+            {
+                "name": "version",
+                "type": "uint64",
+                "indexed": false,
+                "internalType": "uint64"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "LiquidationMintBpsUpdated",
+        "inputs": [
+            {
+                "name": "liquidationMintBps",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "LiquidationThresholdUpdated",
+        "inputs": [
+            {
+                "name": "newThreshold",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "MaxDailyRedemptionUpdated",
+        "inputs": [
+            {
+                "name": "newMaxDailyRedemption",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "MaxLTVUpdated",
+        "inputs": [
+            {
+                "name": "newLtv",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "MaxLiquidatorFeeUpdated",
+        "inputs": [
+            {
+                "name": "maxFee",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "MaxSingleRedemptionUpdated",
+        "inputs": [
+            {
+                "name": "newMaxSingleRedemption",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "MinBorrowUpdated",
+        "inputs": [
+            {
+                "name": "newMinBorrow",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "MinSingleRedemptionUpdated",
+        "inputs": [
+            {
+                "name": "newMinSingleRedemption",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "MinimumDepositUpdated",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            },
+            {
+                "name": "amount",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "PlatformFeeUpdated",
+        "inputs": [
+            {
+                "name": "newFee",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "PythAddressUpdated",
+        "inputs": [
+            {
+                "name": "newPyth",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "RedemptionFeeBpsUpdated",
+        "inputs": [
+            {
+                "name": "newRedemptionFeeBps",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "RewardDistributorUpdated",
+        "inputs": [
+            {
+                "name": "rewardDistributor",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "RoleAdminChanged",
+        "inputs": [
+            {
+                "name": "role",
+                "type": "bytes32",
+                "indexed": true,
+                "internalType": "bytes32"
+            },
+            {
+                "name": "previousAdminRole",
+                "type": "bytes32",
+                "indexed": true,
+                "internalType": "bytes32"
+            },
+            {
+                "name": "newAdminRole",
+                "type": "bytes32",
+                "indexed": true,
+                "internalType": "bytes32"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "RoleGranted",
+        "inputs": [
+            {
+                "name": "role",
+                "type": "bytes32",
+                "indexed": true,
+                "internalType": "bytes32"
+            },
+            {
+                "name": "account",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            },
+            {
+                "name": "sender",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "RoleRevoked",
+        "inputs": [
+            {
+                "name": "role",
+                "type": "bytes32",
+                "indexed": true,
+                "internalType": "bytes32"
+            },
+            {
+                "name": "account",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            },
+            {
+                "name": "sender",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "RoundDurationUpdated",
+        "inputs": [
+            {
+                "name": "newDuration",
+                "type": "uint48",
+                "indexed": false,
+                "internalType": "uint48"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "StakeShareUpdated",
+        "inputs": [
+            {
+                "name": "stakeShare",
+                "type": "uint16",
+                "indexed": false,
+                "internalType": "uint16"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "SupplyCapUpdated",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            },
+            {
+                "name": "supplyCap",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "SwapperUpdated",
+        "inputs": [
+            {
+                "name": "swapper",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "TokenAdded",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            },
+            {
+                "name": "priceId",
+                "type": "bytes32",
+                "indexed": false,
+                "internalType": "bytes32"
+            },
+            {
+                "name": "decimals",
+                "type": "uint8",
+                "indexed": false,
+                "internalType": "uint8"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "TokenDisabled",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "TokenStaleAgeUpdated",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            },
+            {
+                "name": "stalenessAge",
+                "type": "uint48",
+                "indexed": false,
+                "internalType": "uint48"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "TokenUpdated",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            },
+            {
+                "name": "enabled",
+                "type": "bool",
+                "indexed": false,
+                "internalType": "bool"
+            },
+            {
+                "name": "priceId",
+                "type": "bytes32",
+                "indexed": false,
+                "internalType": "bytes32"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "TreasuryShareUpdated",
+        "inputs": [
+            {
+                "name": "treasuryShare",
+                "type": "uint16",
+                "indexed": false,
+                "internalType": "uint16"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "TreasuryUpdated",
+        "inputs": [
+            {
+                "name": "treasury",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "Upgraded",
+        "inputs": [
+            {
+                "name": "implementation",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "WithdrawFeeBpsUpdated",
+        "inputs": [
+            {
+                "name": "newFee",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "WithdrawalCutoffUpdated",
+        "inputs": [
+            {
+                "name": "newCutoff",
+                "type": "uint48",
+                "indexed": false,
+                "internalType": "uint48"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "WithdrawalWaitRoundsUpdated",
+        "inputs": [
+            {
+                "name": "newWaitRounds",
+                "type": "uint48",
+                "indexed": false,
+                "internalType": "uint48"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "error",
+        "name": "AccessControlBadConfirmation",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "AccessControlUnauthorizedAccount",
+        "inputs": [
+            {
+                "name": "account",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "neededRole",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ]
+    },
+    {
+        "type": "error",
+        "name": "AddressEmptyCode",
+        "inputs": [
+            {
+                "name": "target",
+                "type": "address",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "error",
+        "name": "DCP_INVALID_ADDRESS",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DCP_TokenNotSupported",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DHCC_INVALID_ADDRESS",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DOC_InvalidAddress",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DRC_InvalidFeeBps",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DRC_InvalidRedemptionAmount",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DRC_InvalidRedemptionBps",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DRDCP_INVALID_ADDRESS",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DRDCP_INVALID_SHARES",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DTC_InvalidAddress",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DTC_InvalidPriceId",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DTC_TokenAlreadyDisabled",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DTC_TokenAlreadyExists",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DTC_TokenNotFound",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DVC_INVALID_ADDRESS",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DVC_INVALID_AMOUNT",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DVC_InvalidAllocation",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DVC_UNIMPLEMENTATED",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "ERC1967InvalidImplementation",
+        "inputs": [
+            {
+                "name": "implementation",
+                "type": "address",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "error",
+        "name": "ERC1967NonPayable",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "FailedCall",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "InvalidInitialization",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "NotInitializing",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "UUPSUnauthorizedCallContext",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "UUPSUnsupportedProxiableUUID",
+        "inputs": [
+            {
+                "name": "slot",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ]
+    }
+]

@@ -1,780 +1,780 @@
 [
-        {
-            "type": "constructor",
-            "inputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "DEFAULT_ADMIN_ROLE",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "UPGRADE_INTERFACE_VERSION",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "string",
-                    "internalType": "string"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "delphoConfigProvider",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "depositAndMint",
-            "inputs": [
-                {
-                    "name": "collateralToken",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "collateralAmount",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                },
-                {
-                    "name": "minUsdvAmount",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                },
-                {
-                    "name": "stake",
-                    "type": "bool",
-                    "internalType": "bool"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "usdvAmount",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "depositCollateral",
-            "inputs": [
-                {
-                    "name": "collateralToken",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "collateralAmount",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "getRoleAdmin",
-            "inputs": [
-                {
-                    "name": "role",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "getStakingRewards",
-            "inputs": [],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "grantRole",
-            "inputs": [
-                {
-                    "name": "role",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "account",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "hasRole",
-            "inputs": [
-                {
-                    "name": "role",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "account",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "bool",
-                    "internalType": "bool"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "initialize",
-            "inputs": [
-                {
-                    "name": "_delphoConfig",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "_owner",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "mintAndStake",
-            "inputs": [
-                {
-                    "name": "usdvAmount",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "mintStable",
-            "inputs": [
-                {
-                    "name": "usdvAmount",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "paused",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "bool",
-                    "internalType": "bool"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "proxiableUUID",
-            "inputs": [],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "renounceRole",
-            "inputs": [
-                {
-                    "name": "role",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "callerConfirmation",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "repayAndWithdraw",
-            "inputs": [
-                {
-                    "name": "repayToken",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "repayAmount",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                },
-                {
-                    "name": "withdrawToken",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "withdrawAmount",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "repayLoan",
-            "inputs": [
-                {
-                    "name": "repayAmount",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "requestWithdrawal",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "amount",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "bufferUtilized",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "revokeRole",
-            "inputs": [
-                {
-                    "name": "role",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "account",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "setPaused",
-            "inputs": [
-                {
-                    "name": "_pauseContract",
-                    "type": "bool",
-                    "internalType": "bool"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "stakeUSDV",
-            "inputs": [
-                {
-                    "name": "amount",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "supportsInterface",
-            "inputs": [
-                {
-                    "name": "interfaceId",
-                    "type": "bytes4",
-                    "internalType": "bytes4"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "bool",
-                    "internalType": "bool"
-                }
-            ],
-            "stateMutability": "view"
-        },
-        {
-            "type": "function",
-            "name": "unstakeUSDV",
-            "inputs": [
-                {
-                    "name": "amount",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "updateDelphoConfigProvider",
-            "inputs": [
-                {
-                    "name": "newDelphoConfigProvider",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "function",
-            "name": "upgradeToAndCall",
-            "inputs": [
-                {
-                    "name": "newImplementation",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "data",
-                    "type": "bytes",
-                    "internalType": "bytes"
-                }
-            ],
-            "outputs": [],
-            "stateMutability": "payable"
-        },
-        {
-            "type": "function",
-            "name": "withdrawCollateral",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "amount",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256",
-                    "internalType": "uint256"
-                }
-            ],
-            "stateMutability": "nonpayable"
-        },
-        {
-            "type": "event",
-            "name": "DelphoConfigProviderUpdated",
-            "inputs": [
-                {
-                    "name": "prevProvider",
-                    "type": "address",
-                    "indexed": true,
-                    "internalType": "address"
-                },
-                {
-                    "name": "newProvider",
-                    "type": "address",
-                    "indexed": true,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "Initialized",
-            "inputs": [
-                {
-                    "name": "version",
-                    "type": "uint64",
-                    "indexed": false,
-                    "internalType": "uint64"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "Paused",
-            "inputs": [
-                {
-                    "name": "account",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "RoleAdminChanged",
-            "inputs": [
-                {
-                    "name": "role",
-                    "type": "bytes32",
-                    "indexed": true,
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "previousAdminRole",
-                    "type": "bytes32",
-                    "indexed": true,
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "newAdminRole",
-                    "type": "bytes32",
-                    "indexed": true,
-                    "internalType": "bytes32"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "RoleGranted",
-            "inputs": [
-                {
-                    "name": "role",
-                    "type": "bytes32",
-                    "indexed": true,
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "account",
-                    "type": "address",
-                    "indexed": true,
-                    "internalType": "address"
-                },
-                {
-                    "name": "sender",
-                    "type": "address",
-                    "indexed": true,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "RoleRevoked",
-            "inputs": [
-                {
-                    "name": "role",
-                    "type": "bytes32",
-                    "indexed": true,
-                    "internalType": "bytes32"
-                },
-                {
-                    "name": "account",
-                    "type": "address",
-                    "indexed": true,
-                    "internalType": "address"
-                },
-                {
-                    "name": "sender",
-                    "type": "address",
-                    "indexed": true,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "Unpaused",
-            "inputs": [
-                {
-                    "name": "account",
-                    "type": "address",
-                    "indexed": false,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "event",
-            "name": "Upgraded",
-            "inputs": [
-                {
-                    "name": "implementation",
-                    "type": "address",
-                    "indexed": true,
-                    "internalType": "address"
-                }
-            ],
-            "anonymous": false
-        },
-        {
-            "type": "error",
-            "name": "AccessControlBadConfirmation",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "AccessControlUnauthorizedAccount",
-            "inputs": [
-                {
-                    "name": "account",
-                    "type": "address",
-                    "internalType": "address"
-                },
-                {
-                    "name": "neededRole",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                }
-            ]
-        },
-        {
-            "type": "error",
-            "name": "AddressEmptyCode",
-            "inputs": [
-                {
-                    "name": "target",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ]
-        },
-        {
-            "type": "error",
-            "name": "DR_BelowMinimumDeposit",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DR_ExceedsMaxSupplyCap",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DR_InvalidAddress",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DR_InvalidAmount",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DR_InvalidBorrowAmount",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DR_InvalidRecievedAmount",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DR_TokenNotSupported",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DR_UnSupportedRepayToken",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DV_CONFIG_INVALID_INTERFACE",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DV_CONFIG_PROVIDER_NOT_CONTRACT",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "DV_NOT_CONFIG_PROVIDER",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "ERC1967InvalidImplementation",
-            "inputs": [
-                {
-                    "name": "implementation",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ]
-        },
-        {
-            "type": "error",
-            "name": "ERC1967NonPayable",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "EnforcedPause",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "ExpectedPause",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "FailedCall",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "InvalidInitialization",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "NotInitializing",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "ReentrancyGuardReentrantCall",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "SafeERC20FailedOperation",
-            "inputs": [
-                {
-                    "name": "token",
-                    "type": "address",
-                    "internalType": "address"
-                }
-            ]
-        },
-        {
-            "type": "error",
-            "name": "UUPSUnauthorizedCallContext",
-            "inputs": []
-        },
-        {
-            "type": "error",
-            "name": "UUPSUnsupportedProxiableUUID",
-            "inputs": [
-                {
-                    "name": "slot",
-                    "type": "bytes32",
-                    "internalType": "bytes32"
-                }
-            ]
-        }
-    ]
+    {
+        "type": "constructor",
+        "inputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "DEFAULT_ADMIN_ROLE",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "UPGRADE_INTERFACE_VERSION",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "string",
+                "internalType": "string"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "delphoConfigProvider",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "depositAndMint",
+        "inputs": [
+            {
+                "name": "collateralToken",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "collateralAmount",
+                "type": "uint256",
+                "internalType": "uint256"
+            },
+            {
+                "name": "minUsdvAmount",
+                "type": "uint256",
+                "internalType": "uint256"
+            },
+            {
+                "name": "stake",
+                "type": "bool",
+                "internalType": "bool"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "usdvAmount",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "depositCollateral",
+        "inputs": [
+            {
+                "name": "collateralToken",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "collateralAmount",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "getRoleAdmin",
+        "inputs": [
+            {
+                "name": "role",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "getStakingRewards",
+        "inputs": [],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "grantRole",
+        "inputs": [
+            {
+                "name": "role",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            },
+            {
+                "name": "account",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "hasRole",
+        "inputs": [
+            {
+                "name": "role",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            },
+            {
+                "name": "account",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool",
+                "internalType": "bool"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "initialize",
+        "inputs": [
+            {
+                "name": "_delphoConfig",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "_owner",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "mintAndStake",
+        "inputs": [
+            {
+                "name": "usdvAmount",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "mintStable",
+        "inputs": [
+            {
+                "name": "usdvAmount",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "paused",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool",
+                "internalType": "bool"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "proxiableUUID",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "renounceRole",
+        "inputs": [
+            {
+                "name": "role",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            },
+            {
+                "name": "callerConfirmation",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "repayAndWithdraw",
+        "inputs": [
+            {
+                "name": "repayToken",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "repayAmount",
+                "type": "uint256",
+                "internalType": "uint256"
+            },
+            {
+                "name": "withdrawToken",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "withdrawAmount",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "repayLoan",
+        "inputs": [
+            {
+                "name": "repayAmount",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "requestWithdrawal",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "bufferUtilized",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "revokeRole",
+        "inputs": [
+            {
+                "name": "role",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            },
+            {
+                "name": "account",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setPaused",
+        "inputs": [
+            {
+                "name": "_pauseContract",
+                "type": "bool",
+                "internalType": "bool"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "stakeUSDV",
+        "inputs": [
+            {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "supportsInterface",
+        "inputs": [
+            {
+                "name": "interfaceId",
+                "type": "bytes4",
+                "internalType": "bytes4"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool",
+                "internalType": "bool"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "unstakeUSDV",
+        "inputs": [
+            {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "updateDelphoConfigProvider",
+        "inputs": [
+            {
+                "name": "newDelphoConfigProvider",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "upgradeToAndCall",
+        "inputs": [
+            {
+                "name": "newImplementation",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "data",
+                "type": "bytes",
+                "internalType": "bytes"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "payable"
+    },
+    {
+        "type": "function",
+        "name": "withdrawCollateral",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "event",
+        "name": "DelphoConfigProviderUpdated",
+        "inputs": [
+            {
+                "name": "prevProvider",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            },
+            {
+                "name": "newProvider",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "Initialized",
+        "inputs": [
+            {
+                "name": "version",
+                "type": "uint64",
+                "indexed": false,
+                "internalType": "uint64"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "Paused",
+        "inputs": [
+            {
+                "name": "account",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "RoleAdminChanged",
+        "inputs": [
+            {
+                "name": "role",
+                "type": "bytes32",
+                "indexed": true,
+                "internalType": "bytes32"
+            },
+            {
+                "name": "previousAdminRole",
+                "type": "bytes32",
+                "indexed": true,
+                "internalType": "bytes32"
+            },
+            {
+                "name": "newAdminRole",
+                "type": "bytes32",
+                "indexed": true,
+                "internalType": "bytes32"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "RoleGranted",
+        "inputs": [
+            {
+                "name": "role",
+                "type": "bytes32",
+                "indexed": true,
+                "internalType": "bytes32"
+            },
+            {
+                "name": "account",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            },
+            {
+                "name": "sender",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "RoleRevoked",
+        "inputs": [
+            {
+                "name": "role",
+                "type": "bytes32",
+                "indexed": true,
+                "internalType": "bytes32"
+            },
+            {
+                "name": "account",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            },
+            {
+                "name": "sender",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "Unpaused",
+        "inputs": [
+            {
+                "name": "account",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "Upgraded",
+        "inputs": [
+            {
+                "name": "implementation",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "error",
+        "name": "AccessControlBadConfirmation",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "AccessControlUnauthorizedAccount",
+        "inputs": [
+            {
+                "name": "account",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "neededRole",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ]
+    },
+    {
+        "type": "error",
+        "name": "AddressEmptyCode",
+        "inputs": [
+            {
+                "name": "target",
+                "type": "address",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "error",
+        "name": "DR_BelowMinimumDeposit",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DR_ExceedsMaxSupplyCap",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DR_InvalidAddress",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DR_InvalidAmount",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DR_InvalidBorrowAmount",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DR_InvalidRecievedAmount",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DR_TokenNotSupported",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DR_UnSupportedRepayToken",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DV_CONFIG_INVALID_INTERFACE",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DV_CONFIG_PROVIDER_NOT_CONTRACT",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "DV_NOT_CONFIG_PROVIDER",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "ERC1967InvalidImplementation",
+        "inputs": [
+            {
+                "name": "implementation",
+                "type": "address",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "error",
+        "name": "ERC1967NonPayable",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "EnforcedPause",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "ExpectedPause",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "FailedCall",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "InvalidInitialization",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "NotInitializing",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "ReentrancyGuardReentrantCall",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "SafeERC20FailedOperation",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "error",
+        "name": "UUPSUnauthorizedCallContext",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "UUPSUnsupportedProxiableUUID",
+        "inputs": [
+            {
+                "name": "slot",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ]
+    }
+]

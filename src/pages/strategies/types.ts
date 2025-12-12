@@ -1,28 +1,27 @@
 export interface Strategy {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  focus: string;
-  asset: string;
-  risk: "Low" | "Medium" | "High";
+    id: string
+    title: string
+    subtitle: string
+    description: string
+    focus: string
+    asset: string
+    risk: "Low" | "Medium" | "High"
 }
 
 export interface HyperLiquidRow {
-  coin: string;
-  size: string;
-  entryPrice: string;
-  markPrice: string;
-  pnl: string;
+    coin: string
+    size: string
+    entryPrice: string
+    markPrice: string
+    pnl: string
 }
 
-export type RebalancingType = "upside" | "downside" | null;
+export type RebalancingType = "upside" | "downside" | null
 
-export type ActionType = "rebalance" | "close";
+export type ActionType = "rebalance" | "close"
 
 export interface ProcessStep {
-  id: string;
-  label: string;
-  status: "pending" | "processing" | "completed" | "error";
+    id: string
+    label: string
+    status: "pending" | "processing" | "completed" | "error"
 }
-
