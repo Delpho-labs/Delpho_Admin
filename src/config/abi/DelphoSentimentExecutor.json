@@ -1,0 +1,1436 @@
+[
+        {
+            "type": "constructor",
+            "inputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "DEFAULT_ADMIN_ROLE",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "bytes32",
+                    "internalType": "bytes32"
+                }
+            ],
+            "stateMutability": "view"
+        },
+        {
+            "type": "function",
+            "name": "SALT",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "bytes32",
+                    "internalType": "bytes32"
+                }
+            ],
+            "stateMutability": "view"
+        },
+        {
+            "type": "function",
+            "name": "UPGRADE_INTERFACE_VERSION",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "string",
+                    "internalType": "string"
+                }
+            ],
+            "stateMutability": "view"
+        },
+        {
+            "type": "function",
+            "name": "WHYPE",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "address",
+                    "internalType": "address"
+                }
+            ],
+            "stateMutability": "view"
+        },
+        {
+            "type": "function",
+            "name": "borrowAsset",
+            "inputs": [
+                {
+                    "name": "borrowAmount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "cancelOrderByOid",
+            "inputs": [
+                {
+                    "name": "asset",
+                    "type": "uint32",
+                    "internalType": "uint32"
+                },
+                {
+                    "name": "oid",
+                    "type": "uint64",
+                    "internalType": "uint64"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "clawBack",
+            "inputs": [
+                {
+                    "name": "token",
+                    "type": "address",
+                    "internalType": "address"
+                },
+                {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "closeHypeShort",
+            "inputs": [
+                {
+                    "name": "limitPx",
+                    "type": "uint64",
+                    "internalType": "uint64"
+                },
+                {
+                    "name": "sz",
+                    "type": "uint64",
+                    "internalType": "uint64"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "closeLeveragePosition",
+            "inputs": [
+                {
+                    "name": "collateralToken",
+                    "type": "address",
+                    "internalType": "address"
+                },
+                {
+                    "name": "",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                },
+                {
+                    "name": "",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                },
+                {
+                    "name": "swapData",
+                    "type": "bytes",
+                    "internalType": "bytes"
+                },
+                {
+                    "name": "",
+                    "type": "uint32",
+                    "internalType": "uint32"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "delphoConfigProvider",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "address",
+                    "internalType": "address"
+                }
+            ],
+            "stateMutability": "view"
+        },
+        {
+            "type": "function",
+            "name": "executeFullEvmFlow",
+            "inputs": [
+                {
+                    "name": "collateralToken",
+                    "type": "address",
+                    "internalType": "address"
+                },
+                {
+                    "name": "debtAmount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                },
+                {
+                    "name": "execData",
+                    "type": "bytes",
+                    "internalType": "bytes"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "getRoleAdmin",
+            "inputs": [
+                {
+                    "name": "role",
+                    "type": "bytes32",
+                    "internalType": "bytes32"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "bytes32",
+                    "internalType": "bytes32"
+                }
+            ],
+            "stateMutability": "view"
+        },
+        {
+            "type": "function",
+            "name": "grantRole",
+            "inputs": [
+                {
+                    "name": "role",
+                    "type": "bytes32",
+                    "internalType": "bytes32"
+                },
+                {
+                    "name": "account",
+                    "type": "address",
+                    "internalType": "address"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "hasRole",
+            "inputs": [
+                {
+                    "name": "role",
+                    "type": "bytes32",
+                    "internalType": "bytes32"
+                },
+                {
+                    "name": "account",
+                    "type": "address",
+                    "internalType": "address"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "bool",
+                    "internalType": "bool"
+                }
+            ],
+            "stateMutability": "view"
+        },
+        {
+            "type": "function",
+            "name": "increaseCollateral",
+            "inputs": [
+                {
+                    "name": "collateralToken",
+                    "type": "address",
+                    "internalType": "address"
+                },
+                {
+                    "name": "collateralAmount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "initialize",
+            "inputs": [
+                {
+                    "name": "collateralToken",
+                    "type": "address",
+                    "internalType": "address"
+                },
+                {
+                    "name": "positionManager",
+                    "type": "address",
+                    "internalType": "address"
+                },
+                {
+                    "name": "protocolLens",
+                    "type": "address",
+                    "internalType": "address"
+                },
+                {
+                    "name": "delphoConfig",
+                    "type": "address",
+                    "internalType": "address"
+                },
+                {
+                    "name": "owner",
+                    "type": "address",
+                    "internalType": "address"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "notifyRewardAmount",
+            "inputs": [
+                {
+                    "name": "token",
+                    "type": "address",
+                    "internalType": "address"
+                },
+                {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "openHypeShort",
+            "inputs": [
+                {
+                    "name": "isBuy",
+                    "type": "bool",
+                    "internalType": "bool"
+                },
+                {
+                    "name": "limitPx",
+                    "type": "uint64",
+                    "internalType": "uint64"
+                },
+                {
+                    "name": "sz",
+                    "type": "uint64",
+                    "internalType": "uint64"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "partialClosePosition",
+            "inputs": [
+                {
+                    "name": "collateralToken",
+                    "type": "address",
+                    "internalType": "address"
+                },
+                {
+                    "name": "closeDebtAmount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                },
+                {
+                    "name": "collateralWithdrawn",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                },
+                {
+                    "name": "swapData",
+                    "type": "bytes",
+                    "internalType": "bytes"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "paused",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "bool",
+                    "internalType": "bool"
+                }
+            ],
+            "stateMutability": "view"
+        },
+        {
+            "type": "function",
+            "name": "pl",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "address",
+                    "internalType": "contract ISentimentProtocolLens"
+                }
+            ],
+            "stateMutability": "view"
+        },
+        {
+            "type": "function",
+            "name": "pm",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "address",
+                    "internalType": "contract ISentimentPositionManager"
+                }
+            ],
+            "stateMutability": "view"
+        },
+        {
+            "type": "function",
+            "name": "positionAddress",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "address",
+                    "internalType": "address"
+                }
+            ],
+            "stateMutability": "view"
+        },
+        {
+            "type": "function",
+            "name": "positionCount",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                }
+            ],
+            "stateMutability": "view"
+        },
+        {
+            "type": "function",
+            "name": "predictPosition",
+            "inputs": [
+                {
+                    "name": "count",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "address",
+                    "internalType": "address payable"
+                },
+                {
+                    "name": "",
+                    "type": "tuple",
+                    "internalType": "struct Action",
+                    "components": [
+                        {
+                            "name": "op",
+                            "type": "uint8",
+                            "internalType": "enum Operation"
+                        },
+                        {
+                            "name": "data",
+                            "type": "bytes",
+                            "internalType": "bytes"
+                        }
+                    ]
+                }
+            ],
+            "stateMutability": "view"
+        },
+        {
+            "type": "function",
+            "name": "proxiableUUID",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "bytes32",
+                    "internalType": "bytes32"
+                }
+            ],
+            "stateMutability": "view"
+        },
+        {
+            "type": "function",
+            "name": "renounceRole",
+            "inputs": [
+                {
+                    "name": "role",
+                    "type": "bytes32",
+                    "internalType": "bytes32"
+                },
+                {
+                    "name": "callerConfirmation",
+                    "type": "address",
+                    "internalType": "address"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "revokeRole",
+            "inputs": [
+                {
+                    "name": "role",
+                    "type": "bytes32",
+                    "internalType": "bytes32"
+                },
+                {
+                    "name": "account",
+                    "type": "address",
+                    "internalType": "address"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "setApiWallet",
+            "inputs": [
+                {
+                    "name": "apiWallet",
+                    "type": "address",
+                    "internalType": "address"
+                },
+                {
+                    "name": "apiWalletName",
+                    "type": "string",
+                    "internalType": "string"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "setPaused",
+            "inputs": [
+                {
+                    "name": "_pauseContract",
+                    "type": "bool",
+                    "internalType": "bool"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "supportsInterface",
+            "inputs": [
+                {
+                    "name": "interfaceId",
+                    "type": "bytes4",
+                    "internalType": "bytes4"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "bool",
+                    "internalType": "bool"
+                }
+            ],
+            "stateMutability": "view"
+        },
+        {
+            "type": "function",
+            "name": "swapTokens",
+            "inputs": [
+                {
+                    "name": "inputToken",
+                    "type": "address",
+                    "internalType": "address"
+                },
+                {
+                    "name": "outputToken",
+                    "type": "address",
+                    "internalType": "address"
+                },
+                {
+                    "name": "minOutputAmount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                },
+                {
+                    "name": "swapExecuteData",
+                    "type": "bytes",
+                    "internalType": "bytes"
+                },
+                {
+                    "name": "useGlueX",
+                    "type": "bool",
+                    "internalType": "bool"
+                },
+                {
+                    "name": "deadline",
+                    "type": "uint32",
+                    "internalType": "uint32"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "swapUsdtUsdc",
+            "inputs": [
+                {
+                    "name": "isBuy",
+                    "type": "bool",
+                    "internalType": "bool"
+                },
+                {
+                    "name": "limitPx",
+                    "type": "uint64",
+                    "internalType": "uint64"
+                },
+                {
+                    "name": "sz",
+                    "type": "uint64",
+                    "internalType": "uint64"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "transferAssets",
+            "inputs": [
+                {
+                    "name": "amount",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                },
+                {
+                    "name": "token",
+                    "type": "address",
+                    "internalType": "address"
+                },
+                {
+                    "name": "receiver",
+                    "type": "address",
+                    "internalType": "address"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "transferFundsToVault",
+            "inputs": [
+                {
+                    "name": "token",
+                    "type": "address",
+                    "internalType": "address"
+                },
+                {
+                    "name": "toExecutor",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                },
+                {
+                    "name": "toWithdrawals",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "transferUsdcBetweenSpotPerp",
+            "inputs": [
+                {
+                    "name": "ntl",
+                    "type": "uint64",
+                    "internalType": "uint64"
+                },
+                {
+                    "name": "toPerp",
+                    "type": "bool",
+                    "internalType": "bool"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "transferUsdt2Core",
+            "inputs": [],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "transferUsdtToHyperEvm",
+            "inputs": [
+                {
+                    "name": "weiAmount",
+                    "type": "uint64",
+                    "internalType": "uint64"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "updateDelphoConfigProvider",
+            "inputs": [
+                {
+                    "name": "newDelphoConfigProvider",
+                    "type": "address",
+                    "internalType": "address"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+        },
+        {
+            "type": "function",
+            "name": "upgradeToAndCall",
+            "inputs": [
+                {
+                    "name": "newImplementation",
+                    "type": "address",
+                    "internalType": "address"
+                },
+                {
+                    "name": "data",
+                    "type": "bytes",
+                    "internalType": "bytes"
+                }
+            ],
+            "outputs": [],
+            "stateMutability": "payable"
+        },
+        {
+            "type": "function",
+            "name": "usdtPoolId",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                }
+            ],
+            "stateMutability": "view"
+        },
+        {
+            "type": "event",
+            "name": "ApiWalletUpdated",
+            "inputs": [
+                {
+                    "name": "apiWallet",
+                    "type": "address",
+                    "indexed": true,
+                    "internalType": "address"
+                },
+                {
+                    "name": "apiWalletName",
+                    "type": "string",
+                    "indexed": true,
+                    "internalType": "string"
+                },
+                {
+                    "name": "isAdd",
+                    "type": "bool",
+                    "indexed": false,
+                    "internalType": "bool"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "AssetBorrowed",
+            "inputs": [
+                {
+                    "name": "positionAddress",
+                    "type": "address",
+                    "indexed": true,
+                    "internalType": "address"
+                },
+                {
+                    "name": "borrowAmount",
+                    "type": "uint256",
+                    "indexed": true,
+                    "internalType": "uint256"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "AssetTransferred",
+            "inputs": [
+                {
+                    "name": "amount",
+                    "type": "uint256",
+                    "indexed": true,
+                    "internalType": "uint256"
+                },
+                {
+                    "name": "receiver",
+                    "type": "address",
+                    "indexed": true,
+                    "internalType": "address"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "CloseHypeShort",
+            "inputs": [
+                {
+                    "name": "limitPx",
+                    "type": "uint64",
+                    "indexed": false,
+                    "internalType": "uint64"
+                },
+                {
+                    "name": "sz",
+                    "type": "uint64",
+                    "indexed": false,
+                    "internalType": "uint64"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "CollateralIncreased",
+            "inputs": [
+                {
+                    "name": "positionAddress",
+                    "type": "address",
+                    "indexed": true,
+                    "internalType": "address"
+                },
+                {
+                    "name": "collateralAmount",
+                    "type": "uint256",
+                    "indexed": true,
+                    "internalType": "uint256"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "DelphoConfigProviderUpdated",
+            "inputs": [
+                {
+                    "name": "prevProvider",
+                    "type": "address",
+                    "indexed": true,
+                    "internalType": "address"
+                },
+                {
+                    "name": "newProvider",
+                    "type": "address",
+                    "indexed": true,
+                    "internalType": "address"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "EVMFlowExecuted",
+            "inputs": [
+                {
+                    "name": "collateralAsset",
+                    "type": "address",
+                    "indexed": true,
+                    "internalType": "address"
+                },
+                {
+                    "name": "initialCollateralAmount",
+                    "type": "uint256",
+                    "indexed": true,
+                    "internalType": "uint256"
+                },
+                {
+                    "name": "debtBorrowed",
+                    "type": "uint256",
+                    "indexed": true,
+                    "internalType": "uint256"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "Initialized",
+            "inputs": [
+                {
+                    "name": "version",
+                    "type": "uint64",
+                    "indexed": false,
+                    "internalType": "uint64"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "OpenHypeShort",
+            "inputs": [
+                {
+                    "name": "isBuy",
+                    "type": "bool",
+                    "indexed": false,
+                    "internalType": "bool"
+                },
+                {
+                    "name": "limitPx",
+                    "type": "uint64",
+                    "indexed": false,
+                    "internalType": "uint64"
+                },
+                {
+                    "name": "sz",
+                    "type": "uint64",
+                    "indexed": false,
+                    "internalType": "uint64"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "Paused",
+            "inputs": [
+                {
+                    "name": "account",
+                    "type": "address",
+                    "indexed": false,
+                    "internalType": "address"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "PositionClosed",
+            "inputs": [
+                {
+                    "name": "positionAddress",
+                    "type": "address",
+                    "indexed": true,
+                    "internalType": "address"
+                },
+                {
+                    "name": "hypeWithdrawn",
+                    "type": "uint256",
+                    "indexed": false,
+                    "internalType": "uint256"
+                },
+                {
+                    "name": "usdtRepaid",
+                    "type": "uint256",
+                    "indexed": false,
+                    "internalType": "uint256"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "RoleAdminChanged",
+            "inputs": [
+                {
+                    "name": "role",
+                    "type": "bytes32",
+                    "indexed": true,
+                    "internalType": "bytes32"
+                },
+                {
+                    "name": "previousAdminRole",
+                    "type": "bytes32",
+                    "indexed": true,
+                    "internalType": "bytes32"
+                },
+                {
+                    "name": "newAdminRole",
+                    "type": "bytes32",
+                    "indexed": true,
+                    "internalType": "bytes32"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "RoleGranted",
+            "inputs": [
+                {
+                    "name": "role",
+                    "type": "bytes32",
+                    "indexed": true,
+                    "internalType": "bytes32"
+                },
+                {
+                    "name": "account",
+                    "type": "address",
+                    "indexed": true,
+                    "internalType": "address"
+                },
+                {
+                    "name": "sender",
+                    "type": "address",
+                    "indexed": true,
+                    "internalType": "address"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "RoleRevoked",
+            "inputs": [
+                {
+                    "name": "role",
+                    "type": "bytes32",
+                    "indexed": true,
+                    "internalType": "bytes32"
+                },
+                {
+                    "name": "account",
+                    "type": "address",
+                    "indexed": true,
+                    "internalType": "address"
+                },
+                {
+                    "name": "sender",
+                    "type": "address",
+                    "indexed": true,
+                    "internalType": "address"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "SlippageBpsSet",
+            "inputs": [
+                {
+                    "name": "bps",
+                    "type": "uint256",
+                    "indexed": true,
+                    "internalType": "uint256"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "SwapUsdt2Usdc",
+            "inputs": [
+                {
+                    "name": "isBuy",
+                    "type": "bool",
+                    "indexed": false,
+                    "internalType": "bool"
+                },
+                {
+                    "name": "limitPx",
+                    "type": "uint64",
+                    "indexed": false,
+                    "internalType": "uint64"
+                },
+                {
+                    "name": "sz",
+                    "type": "uint64",
+                    "indexed": false,
+                    "internalType": "uint64"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "TokensSwapped",
+            "inputs": [
+                {
+                    "name": "inputToken",
+                    "type": "address",
+                    "indexed": true,
+                    "internalType": "address"
+                },
+                {
+                    "name": "outputToken",
+                    "type": "address",
+                    "indexed": true,
+                    "internalType": "address"
+                },
+                {
+                    "name": "inputBalance",
+                    "type": "uint256",
+                    "indexed": false,
+                    "internalType": "uint256"
+                },
+                {
+                    "name": "received",
+                    "type": "uint256",
+                    "indexed": false,
+                    "internalType": "uint256"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "TransferUsdcFromPerpToSpot",
+            "inputs": [
+                {
+                    "name": "ntl",
+                    "type": "uint64",
+                    "indexed": false,
+                    "internalType": "uint64"
+                },
+                {
+                    "name": "toSpot",
+                    "type": "bool",
+                    "indexed": false,
+                    "internalType": "bool"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "TransferUsdcFromSpotToPerp",
+            "inputs": [
+                {
+                    "name": "ntl",
+                    "type": "uint64",
+                    "indexed": false,
+                    "internalType": "uint64"
+                },
+                {
+                    "name": "toPerp",
+                    "type": "bool",
+                    "indexed": false,
+                    "internalType": "bool"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "TransferUsdt2Core",
+            "inputs": [
+                {
+                    "name": "amount",
+                    "type": "uint256",
+                    "indexed": true,
+                    "internalType": "uint256"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "TransferUsdtToHyperEvm",
+            "inputs": [
+                {
+                    "name": "weiAmount",
+                    "type": "uint64",
+                    "indexed": false,
+                    "internalType": "uint64"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "Unpaused",
+            "inputs": [
+                {
+                    "name": "account",
+                    "type": "address",
+                    "indexed": false,
+                    "internalType": "address"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "event",
+            "name": "Upgraded",
+            "inputs": [
+                {
+                    "name": "implementation",
+                    "type": "address",
+                    "indexed": true,
+                    "internalType": "address"
+                }
+            ],
+            "anonymous": false
+        },
+        {
+            "type": "error",
+            "name": "AccessControlBadConfirmation",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "AccessControlUnauthorizedAccount",
+            "inputs": [
+                {
+                    "name": "account",
+                    "type": "address",
+                    "internalType": "address"
+                },
+                {
+                    "name": "neededRole",
+                    "type": "bytes32",
+                    "internalType": "bytes32"
+                }
+            ]
+        },
+        {
+            "type": "error",
+            "name": "AddressEmptyCode",
+            "inputs": [
+                {
+                    "name": "target",
+                    "type": "address",
+                    "internalType": "address"
+                }
+            ]
+        },
+        {
+            "type": "error",
+            "name": "DSE_InvalidAddress",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "DV_CONFIG_INVALID_INTERFACE",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "DV_CONFIG_PROVIDER_NOT_CONTRACT",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "DV_NOT_CONFIG_PROVIDER",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "Delpho__AddressZero",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "Delpho__Call_Failed",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "Delpho__Deadline_Expired",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "Delpho__ImplementFunction",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "Delpho__InvalidAmount",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "Delpho__InvalidBPS",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "Delpho__InvalidCloseAmount",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "Delpho__InvalidCollateral",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "Delpho__InvalidData",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "Delpho__InvalidOraclePrice",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "Delpho__MAX_EXCEEDED",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "Delpho__NoBalance",
+            "inputs": [
+                {
+                    "name": "token",
+                    "type": "address",
+                    "internalType": "address"
+                }
+            ]
+        },
+        {
+            "type": "error",
+            "name": "Delpho__NoCollateral",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "Delpho__NoPositionState",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "Delpho__NotEnoughBalance",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "Delpho__PositionNotOpened",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "Delpho__SlippageExceeded",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "ERC1967InvalidImplementation",
+            "inputs": [
+                {
+                    "name": "implementation",
+                    "type": "address",
+                    "internalType": "address"
+                }
+            ]
+        },
+        {
+            "type": "error",
+            "name": "ERC1967NonPayable",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "EnforcedPause",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "ExpectedPause",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "FailedCall",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "InvalidInitialization",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "NotInitializing",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "ReentrancyGuardReentrantCall",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "SafeERC20FailedOperation",
+            "inputs": [
+                {
+                    "name": "token",
+                    "type": "address",
+                    "internalType": "address"
+                }
+            ]
+        },
+        {
+            "type": "error",
+            "name": "UUPSUnauthorizedCallContext",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "UUPSUnsupportedProxiableUUID",
+            "inputs": [
+                {
+                    "name": "slot",
+                    "type": "bytes32",
+                    "internalType": "bytes32"
+                }
+            ]
+        }
+    ]
