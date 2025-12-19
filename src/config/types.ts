@@ -45,4 +45,13 @@ export type AssetInfo = {
     symbol: string
     name: string
     decimals: number
+    feedId: string
+}
+
+export type RebalanceDirection = "UPSIDE" | "DOWNSIDE" | "NONE"
+
+export interface RebalanceInfo {
+    needsRebalancing: boolean
+    rebalancingType: RebalanceDirection
+    amount: number
 }

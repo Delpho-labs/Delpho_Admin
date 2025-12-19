@@ -10,6 +10,9 @@ import DELPHO_ROUTER_ABI_JSON from "./abi/DelphoRouter.json"
 import DELPHO_STABILITY_POOL_ABI_JSON from "./abi/DelphoStabilityPool.json"
 import DELPHO_STAKER_ABI_JSON from "./abi/DelphoStaker.json"
 import DELPHO_VAULT_LENS_ABI_JSON from "./abi/DelphoVaultLens.json"
+import SENTIMENT_LENS_ABI_JSON from "./abi/SentimentLens.json"
+import SENTIMENT_POOL_ABI_JSON from "./abi/SentimentPool.json"
+import SENTIMENT_RISK_POOL_ABI_JSON from "./abi/SentimentRiskPool.json"
 
 export const HYPERLEND_ABI = HYPERLEND_ABI_JSON
 export const DELPHO_STABLE_ABI = DELPHO_STABLE_ABI_JSON
@@ -24,3 +27,6 @@ export const DELPHO_ROUTER_ABI = DELPHO_ROUTER_ABI_JSON
 export const DELPHO_STABILITY_POOL_ABI = DELPHO_STABILITY_POOL_ABI_JSON
 export const DELPHO_STAKER_ABI = DELPHO_STAKER_ABI_JSON
 export const DELPHO_VAULT_LENS_ABI = DELPHO_VAULT_LENS_ABI_JSON
+export const SENTIMENT_LENS_ABI = SENTIMENT_LENS_ABI_JSON
+export const SENTIMENT_POOL_ABI = SENTIMENT_POOL_ABI_JSON
+export const SENTIMENT_RISK_POOL_ABI = SENTIMENT_RISK_POOL_ABI_JSON
