@@ -1,0 +1,173 @@
+[
+    {
+        "inputs": [],
+        "name": "POOL",
+        "outputs": [{ "internalType": "contract Pool", "name": "", "type": "address" }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "POSITION_MANAGER",
+        "outputs": [{ "internalType": "contract PositionManager", "name": "", "type": "address" }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "RISK_ENGINE",
+        "outputs": [{ "internalType": "contract RiskEngine", "name": "", "type": "address" }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "address", "name": "position", "type": "address" }],
+        "name": "getAssetData",
+        "outputs": [
+            {
+                "components": [
+                    { "internalType": "address", "name": "asset", "type": "address" },
+                    { "internalType": "uint256", "name": "amount", "type": "uint256" },
+                    { "internalType": "uint256", "name": "valueInEth", "type": "uint256" }
+                ],
+                "internalType": "struct PortfolioLens.AssetData[]",
+                "name": "assetData",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "address", "name": "position", "type": "address" }],
+        "name": "getDebtData",
+        "outputs": [
+            {
+                "components": [
+                    { "internalType": "uint256", "name": "poolId", "type": "uint256" },
+                    { "internalType": "address", "name": "asset", "type": "address" },
+                    { "internalType": "uint256", "name": "amount", "type": "uint256" },
+                    { "internalType": "uint256", "name": "valueInEth", "type": "uint256" },
+                    { "internalType": "uint256", "name": "interestRate", "type": "uint256" }
+                ],
+                "internalType": "struct PortfolioLens.DebtData[]",
+                "name": "debtData",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "address[]", "name": "positions", "type": "address[]" }],
+        "name": "getPortfolioData",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "components": [
+                            { "internalType": "address", "name": "position", "type": "address" },
+                            { "internalType": "address", "name": "owner", "type": "address" },
+                            {
+                                "components": [
+                                    { "internalType": "address", "name": "asset", "type": "address" },
+                                    { "internalType": "uint256", "name": "amount", "type": "uint256" },
+                                    { "internalType": "uint256", "name": "valueInEth", "type": "uint256" }
+                                ],
+                                "internalType": "struct PortfolioLens.AssetData[]",
+                                "name": "assets",
+                                "type": "tuple[]"
+                            },
+                            {
+                                "components": [
+                                    { "internalType": "uint256", "name": "poolId", "type": "uint256" },
+                                    { "internalType": "address", "name": "asset", "type": "address" },
+                                    { "internalType": "uint256", "name": "amount", "type": "uint256" },
+                                    { "internalType": "uint256", "name": "valueInEth", "type": "uint256" },
+                                    { "internalType": "uint256", "name": "interestRate", "type": "uint256" }
+                                ],
+                                "internalType": "struct PortfolioLens.DebtData[]",
+                                "name": "debts",
+                                "type": "tuple[]"
+                            }
+                        ],
+                        "internalType": "struct PortfolioLens.PositionData[]",
+                        "name": "positions",
+                        "type": "tuple[]"
+                    }
+                ],
+                "internalType": "struct PortfolioLens.PortfolioData",
+                "name": "portfolioData",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "address", "name": "position", "type": "address" }],
+        "name": "getPositionData",
+        "outputs": [
+            {
+                "components": [
+                    { "internalType": "address", "name": "position", "type": "address" },
+                    { "internalType": "address", "name": "owner", "type": "address" },
+                    {
+                        "components": [
+                            { "internalType": "address", "name": "asset", "type": "address" },
+                            { "internalType": "uint256", "name": "amount", "type": "uint256" },
+                            { "internalType": "uint256", "name": "valueInEth", "type": "uint256" }
+                        ],
+                        "internalType": "struct PortfolioLens.AssetData[]",
+                        "name": "assets",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "components": [
+                            { "internalType": "uint256", "name": "poolId", "type": "uint256" },
+                            { "internalType": "address", "name": "asset", "type": "address" },
+                            { "internalType": "uint256", "name": "amount", "type": "uint256" },
+                            { "internalType": "uint256", "name": "valueInEth", "type": "uint256" },
+                            { "internalType": "uint256", "name": "interestRate", "type": "uint256" }
+                        ],
+                        "internalType": "struct PortfolioLens.DebtData[]",
+                        "name": "debts",
+                        "type": "tuple[]"
+                    }
+                ],
+                "internalType": "struct PortfolioLens.PositionData",
+                "name": "positionData",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "address", "name": "position", "type": "address" }],
+        "name": "getTotalAssetValue",
+        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "address", "name": "position", "type": "address" }],
+        "name": "getTotalDebtValue",
+        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "address", "name": "owner", "type": "address" },
+            { "internalType": "bytes32", "name": "salt", "type": "bytes32" }
+        ],
+        "name": "predictAddress",
+        "outputs": [
+            { "internalType": "address", "name": "newPosition", "type": "address" },
+            { "internalType": "bool", "name": "available", "type": "bool" }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
