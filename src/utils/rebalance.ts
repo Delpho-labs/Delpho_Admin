@@ -7,7 +7,7 @@ export async function checkForRebalance(executorAddress: string) {
     const positions = (await hyperliquid.getPerpPositions(executorAddress)) as ClearinghouseState
 
     const pnl = truncate(Number(positions.assetPositions[0].position.unrealizedPnl))
-    
+
     if (Math.abs(pnl) >= 12) {
         if (pnl > 0) {
             return {
@@ -24,7 +24,7 @@ export async function checkForRebalance(executorAddress: string) {
         }
     } else {
         return {
-            needsRebalancing: false, 
+            needsRebalancing: false,
             rebalancingType: "NONE" as RebalanceDirection,
             amount: 0,
         }

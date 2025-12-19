@@ -63,7 +63,7 @@ export async function getGlueXQuote(params: GlueXQuoteParams, maxRetries: number
             return result
         } catch (error) {
             lastError = error
-            console.warn(`Attempt ${attempt} failed:`, (error))
+            console.warn(`Attempt ${attempt} failed:`, error)
 
             if (attempt < maxRetries) {
                 console.log(`Waiting before retry...`)
@@ -116,7 +116,7 @@ export async function getTokenPrice(tokenAddress: string, maxRetries: number = 3
             return price
         } catch (error) {
             lastError = error
-            console.warn(`Attempt ${attempt} failed for token price:`, (error))
+            console.warn(`Attempt ${attempt} failed for token price:`, error)
 
             if (attempt < maxRetries) {
                 console.log(`Waiting before retry...`)

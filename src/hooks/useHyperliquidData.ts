@@ -16,7 +16,7 @@ import { createHyperliquidClient, type Position } from "../utils/hyperliquid"
 import { EXECUTOR_ADDRESS } from "../config/constants"
 
 export const useHyperliquid = (address?: string) => {
-    const dispatch = useDispatch<AppDispatch>();
+    const dispatch = useDispatch<AppDispatch>()
     const executorAddress = address || EXECUTOR_ADDRESS
     const hyperliquidState = useSelector((state: RootState) => state.hyperliquid)
 

@@ -95,7 +95,7 @@ export async function getTokenPrice(address: string): Promise<number> {
         },
     })
     const priceData = response.data.parsed[0].price
-    const parsedPrice = parseUnits(priceData.price ,18 + priceData.expo)
+    const parsedPrice = parseUnits(priceData.price, 18 + priceData.expo)
     const price = formatEther(parsedPrice)
     return truncate(Number(price))
 }

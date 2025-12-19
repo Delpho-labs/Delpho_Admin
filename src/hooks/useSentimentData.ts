@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query"
 import { type Address, createPublicClient, formatEther, formatUnits, http } from "viem"
 import { useChainId } from "wagmi"
-import {  WHYPE, ETH_ADDRESS, SENTIMENT_LENS_ADDRESS, SENTIMENT_RISK_POOL_ADDRESS } from "../config/constants"
+import { WHYPE, ETH_ADDRESS, SENTIMENT_LENS_ADDRESS, SENTIMENT_RISK_POOL_ADDRESS } from "../config/constants"
 import { hyperliquidMainnet } from "../config/chains"
 import { SENTIMENT_LENS_ABI, SENTIMENT_RISK_POOL_ABI } from "../config/Abi"
 import { getTokenPrice, truncate } from "../utils/helper"
-
 
 interface AssetData {
     asset: Address
@@ -57,17 +56,15 @@ export function useSentimentData(address: string) {
             })
 
             try {
-
                 // const positionAddress = (await client.readContract({
                 //         address: DELPHO_SENTIMENT_EXECUTOR_ADDRESS,
                 //         abi: DELPHO_SENTIMENT_EXECUTOR_ABI,
                 //         functionName: "positionAddress",
                 //         args: [],
-                // })) as string 
+                // })) as string
                 const positionAddress = "0x031e891101a748c07c25f954fe69cff3785515a4"
-                console.log(positionAddress,'positionAddress');
-                
-                
+                console.log(positionAddress, "positionAddress")
+
                 const [positionData, maxLtvValue, ethPriceUSD, hypePrice] = await Promise.all([
                     (await client.readContract({
                         address: SENTIMENT_LENS_ADDRESS,
@@ -88,10 +85,10 @@ export function useSentimentData(address: string) {
                     // Get WHYPE price
                     getTokenPrice(WHYPE),
                 ])
-                console.log(positionData, 'positionData')
-                console.log(ethPriceUSD, 'ethPriceUSD')
-                console.log(hypePrice,'hypePrice')
-                console.log(positionData,'positionData')
+                console.log(positionData, "positionData")
+                console.log(ethPriceUSD, "ethPriceUSD")
+                console.log(hypePrice, "hypePrice")
+                console.log(positionData, "positionData")
 
                 const assetData = positionData.assets
                 const debtData = positionData.debts
@@ -103,8 +100,8 @@ export function useSentimentData(address: string) {
 
                 // Get primary collateral price
                 const primaryCollateral = assetData[0].asset
-                console.log(primaryCollateral,'primaryCollateral');
-                
+                console.log(primaryCollateral, "primaryCollateral")
+
                 const currentPriceUSD = await getTokenPrice(primaryCollateral)
 
                 // Convert ETH values to USD
@@ -113,7 +110,6 @@ export function useSentimentData(address: string) {
 
                 const totalAssetValueUSD = Number(formatEther(totalAssetValueETH)) * ethPriceUSD
 
-                
                 const totalDebtValueUSD = Number(formatEther(totalDebtValueETH)) * ethPriceUSD
 
                 // Convert max LTV to ratio

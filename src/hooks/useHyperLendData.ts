@@ -15,7 +15,6 @@ interface HyperLendData {
 }
 
 export function useHyperLendData(address: string) {
-
     const chainId = useChainId()
 
     return useQuery<HyperLendData | null>({

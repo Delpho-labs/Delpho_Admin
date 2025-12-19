@@ -9,7 +9,7 @@ export const store = configureStore({
         wallet: walletReducer,
         user: userReducer,
         hyperliquid: hyperliquidReducer,
-        vault: vaultReducer, 
+        vault: vaultReducer,
     },
 })
 
