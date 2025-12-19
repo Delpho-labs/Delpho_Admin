@@ -3,11 +3,7 @@ import { createPublicClient, http, parseUnits, type Address } from "viem"
 import { useAccount } from "wagmi"
 import { DELPHO_CONFIG_PROVIDER_ABI, DELPHO_STAKER_ABI, DELPHO_VAULT_LENS_ABI } from "../config/Abi"
 import { hyperliquidMainnet } from "../config/chains"
-import {
-    DELPHO_CONFIG_PROVIDER_ADDRESS,
-    DELPHO_STAKER_ADDRESS,
-    DELPHO_VAULT_LENS_ADDRESS,
-} from "../config/constants"
+import { DELPHO_CONFIG_PROVIDER_ADDRESS, DELPHO_STAKER_ADDRESS, DELPHO_VAULT_LENS_ADDRESS } from "../config/constants"
 import type { UserMetrics, UserPosition, UserPositionRaw } from "../config/types"
 import { getAssetInfo } from "../utils/helper"
 
