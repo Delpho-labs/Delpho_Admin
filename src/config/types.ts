@@ -17,10 +17,10 @@ export type UserPositionRaw = {
 }
 
 export type UserPosition = {
-    totalCollateralValueUsd: bigint
-    currentDebt: bigint
-    pendingInterest: bigint
-    borrowedAmount: bigint
+    totalCollateralValueUsd: string
+    currentDebt: string
+    pendingInterest: string
+    borrowedAmount: string
     currentLtv: bigint
     depositedAssets: Address[]
     depositedAssetsName: string[]
@@ -31,7 +31,7 @@ export type UserPosition = {
     loanId: bigint
     liquidationPrice: bigint
     isLtvHealthy: boolean
-    stakedBalance: bigint
+    stakedBalance: string
 }
 
 export interface UserMetrics {
