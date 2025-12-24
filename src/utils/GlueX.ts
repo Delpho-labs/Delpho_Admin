@@ -140,7 +140,7 @@ export interface GlueXQuoteParams {
     inputAmount?: string | number // For SELL orders
     outputAmount?: string | number // For BUY orders
     userAddress: string
-    orderType?: "BUY" | "SELL" // Make this required for clarity
+    orderType?: "BUY" | "SELL"
 }
 export interface GlueXQuoteResponse {
     calldata?: string
