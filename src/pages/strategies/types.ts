@@ -1,11 +1,13 @@
 export interface Strategy {
     id: string
+    address: string
     title: string
     subtitle: string
     description: string
     focus: string
     asset: string
     risk: "Low" | "Medium" | "High"
+    strategyType: "Hyperlend" | "Sentiment"
 }
 
 export interface HyperLiquidRow {

@@ -1,8 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react"
+import React, { useMemo, useState, useEffect } from "react"
 import HomeSidebar from "../components/HomeSidebar"
 import TopNav from "../components/TopNav"
-import { useHyperliquid } from "../hooks/useHyperliquidData"
-import { useHyperLendData } from "../hooks/useHyperLendData"
 import { STRATEGIES } from "./strategies/constants"
 import { transformPositionsTable } from "./strategies/utils/transformers"
 import { RebalancingToggle } from "./strategies/components/RebalancingToggle"
@@ -11,23 +9,75 @@ import { ProcessingModal } from "./strategies/components/ProcessingModal"
 import { CompactMetric } from "./strategies/components/CompactMetric"
 import { MetricTile } from "./strategies/components/MetricTile"
 import type { ActionType, RebalancingType } from "./strategies/types"
+import { useStrategyDetails } from "../hooks/useStrategyDetails"
+import type { ClearinghouseState } from "../utils/hyperliquid"
+import { checkForRebalance } from "../utils/rebalance"
 
 const Strategies: React.FC = () => {
     const [selectedStrategyId, setSelectedStrategyId] = useState(STRATEGIES[0].id)
-    const [selectedRebalancingType, setSelectedRebalancingType] = useState<RebalancingType>("upside")
+    const [selectedRebalancingType, setSelectedRebalancingType] = useState<RebalancingType>(null)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [modalActionType, setModalActionType] = useState<ActionType>("rebalance")
     const [modalRebalancingType, setModalRebalancingType] = useState<RebalancingType>(null)
+    const [isCheckingRebalance, setIsCheckingRebalance] = useState(false)
 
-    const { positions, loading: hyperLiquidLoading, error: hyperLiquidError, fetchCompleteState } = useHyperliquid()
-    const { data: hyperLendData, isLoading: hyperLendLoading, error: hyperLendError } = useHyperLendData()
+    // Find the selected strategy
+    const selectedStrategy = useMemo(
+        () => STRATEGIES.find((strategy) => strategy.id === selectedStrategyId) || null,
+        [selectedStrategyId]
+    )
 
+    // Use the unified hook for strategy details
+    const strategyDetails = useStrategyDetails(selectedStrategy)
+
+    // Check for rebalancing needs when strategy changes or data updates
     useEffect(() => {
-        fetchCompleteState()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+        const checkRebalancing = async () => {
+            if (!selectedStrategy?.address) return
 
-    const hyperLiquidRows = useMemo(() => transformPositionsTable(positions), [positions])
+            setIsCheckingRebalance(true)
+            try {
+                const result = await checkForRebalance(selectedStrategy.address)
+
+                if (result.needsRebalancing) {
+                    if (result.rebalancingType === "UPSIDE") {
+                        setSelectedRebalancingType("upside")
+                    } else if (result.rebalancingType === "DOWNSIDE") {
+                        setSelectedRebalancingType("downside")
+                    } else {
+                        setSelectedRebalancingType(null)
+                    }
+                } else {
+                    setSelectedRebalancingType(null)
+                }
+            } catch (error) {
+                console.error("Error checking rebalance:", error)
+                setSelectedRebalancingType(null)
+            } finally {
+                setIsCheckingRebalance(false)
+            }
+        }
+
+        checkRebalancing()
+    }, [selectedStrategy?.address, strategyDetails])
+
+    const hyperLendData = useMemo(() => {
+        if (!strategyDetails) return null
+        console.log(strategyDetails, "strategyDetails")
+        return {
+            totalCollateral: strategyDetails.metrics?.totalCollateral,
+            totalDebt: strategyDetails.metrics?.totalDebt,
+            availableBorrows: strategyDetails.metrics?.availableBorrows,
+            healthFactor: strategyDetails.metrics?.healthFactor,
+            ltv: strategyDetails.metrics?.ltv,
+            liquidationThreshold: strategyDetails.metrics?.liquidationThreshold,
+        }
+    }, [strategyDetails])
+
+    const hyperliquidData = useMemo(() => {
+        if (!strategyDetails) return { positions: [], loading: false, error: null, fetchCompleteState: () => {} }
+        return strategyDetails.hyperliquidData || { positions: [], loading: false, error: null, fetchCompleteState: () => {} }
+    }, [strategyDetails])
 
     const formatCurrency = (value?: number) => {
         if (value === undefined || value === null) return "$0.00"
@@ -66,6 +116,12 @@ const Strategies: React.FC = () => {
 
     const canRebalance = selectedRebalancingType !== null
 
+    // Transform positions for table display
+    const hyperLiquidRows = useMemo(
+        () => transformPositionsTable(hyperliquidData.positions as ClearinghouseState),
+        [hyperliquidData.positions]
+    )
+
     return (
         <div className="min-h-screen flex bg-[#101616] text-[#E6FFF6]">
             <HomeSidebar />
@@ -95,6 +151,7 @@ const Strategies: React.FC = () => {
                                         onClick={() => setSelectedStrategyId(strategy.id)}
                                     >
                                         <p className="text-lg font-semibold truncate">{strategy.title}</p>
+                                        <p className="text-sm text-[#A3B8B0] mt-1">{strategy.strategyType}</p>
                                     </button>
                                 )
                             })}
@@ -105,11 +162,13 @@ const Strategies: React.FC = () => {
                         <div className="bg-[#0B1212] rounded-3xl p-6">
                             <div className="flex items-center justify-between mb-4">
                                 <h3 className="text-xl font-semibold">Position from HyperLiquid</h3>
-                                {hyperLiquidLoading && <span className="text-sm text-[#A3B8B0]">Refreshing…</span>}
+                                {hyperliquidData.loading && <span className="text-sm text-[#A3B8B0]">Refreshing…</span>}
                             </div>
 
-                            {hyperLiquidError && (
-                                <div className="mb-4 rounded-xl bg-red-900/40 p-3 text-sm text-red-200">{hyperLiquidError}</div>
+                            {hyperliquidData.error && (
+                                <div className="mb-4 rounded-xl bg-red-900/40 p-3 text-sm text-red-200">
+                                    {hyperliquidData.error}
+                                </div>
                             )}
 
                             <div className="rounded-2xl border border-[#1A2323] overflow-hidden">
@@ -151,14 +210,14 @@ const Strategies: React.FC = () => {
 
                         <div className="bg-[#0B1212] rounded-3xl p-6 space-y-3">
                             <div className="flex items-center justify-between">
-                                <h3 className="text-xl font-semibold">Position from Strategy</h3>
-                                {hyperLendLoading && <span className="text-sm text-[#A3B8B0]">Loading…</span>}
+                                <h3 className="text-xl font-semibold">
+                                    Position from {selectedStrategy?.strategyType || "Strategy"}
+                                </h3>
+                                {strategyDetails?.isLoading && <span className="text-sm text-[#A3B8B0]">Loading…</span>}
                             </div>
 
-                            {hyperLendError && (
-                                <div className="rounded-xl bg-red-900/40 p-3 text-sm text-red-200">
-                                    {hyperLendError instanceof Error ? hyperLendError.message : "Unable to load strategy data"}
-                                </div>
+                            {strategyDetails?.error && (
+                                <div className="rounded-xl bg-red-900/40 p-3 text-sm text-red-200">{strategyDetails.error}</div>
                             )}
 
                             <div className="rounded-2xl border border-[#1A2323] p-4">
@@ -167,11 +226,17 @@ const Strategies: React.FC = () => {
                                         label="Total Collateral"
                                         value={formatCurrency(hyperLendData?.totalCollateral)}
                                     />
+
+                                    {strategyDetails?.strategyType === "Hyperlend" && strategyDetails.metrics && (
+                                        <>
+                                            <CompactMetric
+                                                label="Available to Borrow"
+                                                value={formatCurrency(hyperLendData?.availableBorrows)}
+                                            />
+                                        </>
+                                    )}
                                     <CompactMetric label="Total Debt / Minted" value={formatCurrency(hyperLendData?.totalDebt)} />
-                                    <CompactMetric
-                                        label="Available to Borrow"
-                                        value={formatCurrency(hyperLendData?.availableBorrows)}
-                                    />
+
                                     <CompactMetric
                                         label="Health Factor"
                                         value={
@@ -186,13 +251,34 @@ const Strategies: React.FC = () => {
                                         label="Liq. Threshold"
                                         value={formatPercent(hyperLendData?.liquidationThreshold)}
                                     />
+
+                                    {strategyDetails?.strategyType === "Sentiment" && strategyDetails.metrics && (
+                                        <>
+                                            <CompactMetric
+                                                label="Leverage"
+                                                value={
+                                                    strategyDetails.metrics.leverage
+                                                        ? `${strategyDetails.metrics.leverage.toFixed(2)}x`
+                                                        : "0.00x"
+                                                }
+                                            />
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         </div>
                     </section>
 
                     <section className="bg-[#0B1212] rounded-3xl p-6 space-y-6">
-                        <RebalancingToggle selectedType={selectedRebalancingType} onTypeChange={setSelectedRebalancingType} />
+                        <div className="flex items-center justify-between">
+                            <h3 className="text-lg font-semibold">Rebalancing Status</h3>
+                            {isCheckingRebalance && <span className="text-sm text-[#A3B8B0]">Checking...</span>}
+                        </div>
+                        <RebalancingToggle
+                            selectedType={selectedRebalancingType}
+                            onTypeChange={() => {}} // Make unclickable
+                            disabled={true}
+                        />
                         <ActionButtons
                             onRebalance={handleRebalance}
                             onCloseStrategy={handleCloseStrategy}
@@ -207,8 +293,8 @@ const Strategies: React.FC = () => {
                         <MetricTile
                             label="Utilization"
                             value={
-                                hyperLendData?.totalCollateral
-                                    ? `${((hyperLendData.totalDebt / hyperLendData.totalCollateral) * 100).toFixed(2)}%`
+                                hyperLendData?.totalCollateral && hyperLendData.totalCollateral > 0
+                                    ? `${(((hyperLendData.totalDebt || 0) / hyperLendData.totalCollateral) * 100).toFixed(2)}%`
                                     : "0.00%"
                             }
                         />
@@ -220,6 +306,8 @@ const Strategies: React.FC = () => {
                     onClose={handleCloseModal}
                     actionType={modalActionType}
                     rebalancingType={modalRebalancingType}
+                    strategyId={selectedStrategyId}
+                    strategyAddress={selectedStrategy!.address}
                 />
             </main>
         </div>

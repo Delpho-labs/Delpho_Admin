@@ -1,12 +1,15 @@
-import React, { useMemo } from "react"
-import { FiActivity, FiClock, FiPieChart, FiTrendingUp } from "react-icons/fi"
+import React, { useEffect, useMemo } from "react"
+import { FiActivity, FiClock, FiPieChart, FiTrendingUp, FiDollarSign, FiPercent } from "react-icons/fi"
 import HomeSidebar from "../components/HomeSidebar"
 import TopNav from "../components/TopNav"
-import CollateralTable from "./vault/components/CollateralTable"
 import Section from "./vault/components/Section"
 import StatCard from "./vault/components/StatCard"
-import type { CollateralRow } from "./vault/types"
+import CollateralTable from "./vault/components/CollateralTable"
 import { useVaultData } from "../hooks/useVaultData"
+import { getAssetInfo, getTokenPrice } from "../utils/helper"
+import { useDispatch, useSelector } from "react-redux"
+import type { AppDispatch, RootState } from "../store"
+import { setVaultData } from "../features/vaultSlice"
 
 const formatDateTime = (timestamp?: number) => {
     if (!timestamp) return "—"
@@ -14,45 +17,97 @@ const formatDateTime = (timestamp?: number) => {
 }
 
 const VaultDashboard: React.FC = () => {
+    const dispatch = useDispatch<AppDispatch>()
+    const vaultState = useSelector((state: RootState) => state.vault)
     const { data, isLoading, error } = useVaultData()
 
-    const derived = useMemo(() => {
-        const utilization =
-            data && data.totalCollateral > 0 ? Math.min((data.totalBorrowed / data.totalCollateral) * 100, 999).toFixed(1) : "0.0"
+    useEffect(() => {
+        if (data) {
+            dispatch(setVaultData(data))
+        }
+    }, [data, dispatch])
 
-        const collateralRows: CollateralRow[] = [
-            {
-                label: "Total Collateral",
-                hype: `${(data?.totalCollateral ?? 0).toFixed(3)} HYPE`,
-                khype: "—",
-            },
-            {
-                label: "Buffer Funds",
-                hype: `${(data?.bufferFunds ?? 0).toFixed(3)} HYPE`,
-                khype: "—",
-            },
-            {
-                label: "Funds For Executor",
-                hype: `${(data?.fundsForExecutor ?? 0).toFixed(3)} HYPE`,
-                khype: "—",
-            },
-            {
-                label: "Available For Withdraw",
-                hype: `${(data?.roundData.availableCollateral ?? 0).toFixed(3)} HYPE`,
-                khype: "—",
-            },
-            {
-                label: "Withdraw Requests (current)",
-                hype: `${(data?.roundData.totalWithdrawalRequests ?? 0).toFixed(3)} HYPE`,
-                khype: "—",
-            },
-        ]
+    const vaultData = vaultState.data
+
+    // State to store token prices
+    const [tokenPrices, setTokenPrices] = React.useState<{ [address: string]: number }>({})
+
+    // Fetch token prices when vault data is available
+    useEffect(() => {
+        const fetchTokenPrices = async () => {
+            if (!vaultData) return
+
+            const prices: { [address: string]: number } = {}
+            for (const token of vaultData.tokensData) {
+                try {
+                    const price = await getTokenPrice(token.address)
+                    prices[token.address] = price
+                } catch (error) {
+                    console.error(`Failed to fetch price for token ${token.address}:`, error)
+                    prices[token.address] = 0
+                }
+            }
+            setTokenPrices(prices)
+        }
+
+        fetchTokenPrices()
+    }, [vaultData])
+
+    // Calculate total collateral value in USD
+    const calculateTotalCollateralValue = () => {
+        if (!vaultData || Object.keys(tokenPrices).length === 0) return 0
+
+        return vaultData.tokensData.reduce((sum, token) => {
+            const price = tokenPrices[token.address] || 0
+            return sum + token.totalCollateral * price
+        }, 0)
+    }
+
+    const formatCurrency = (value?: number) => {
+        if (value === undefined || value === null) return "$0.00"
+        return new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        }).format(value)
+    }
+
+    const totalCollateralValue = calculateTotalCollateralValue()
+    const ltvRatio =
+        vaultData && totalCollateralValue > 0 ? ((vaultData.dusdMinted / totalCollateralValue) * 100).toFixed(2) : "0.00"
+
+    const derived = useMemo(() => {
+        if (!vaultData) {
+            return {
+                totalBorrowed: 0,
+                tokenDetails: [],
+            }
+        }
+
+        const totalBorrowed = vaultData.dusdMinted
+
+        // Create token details for the display
+        const tokenDetails = vaultData.tokensData.map((token) => {
+            const assetInfo = getAssetInfo(token.address)
+            return {
+                name: assetInfo.name,
+                symbol: assetInfo.symbol,
+                address: token.address,
+                totalCollateral: token.totalCollateral,
+                bufferFunds: token.bufferFunds,
+                fundsForExecutor: token.fundsForExecutor,
+                availableForWithdraw: token.availableForWithdrawRequest,
+                withdrawalRequests: token.totalWithdrawalRequests,
+                decimals: assetInfo.decimals,
+            }
+        })
 
         return {
-            utilization,
-            collateralRows,
+            totalBorrowed,
+            tokenDetails,
         }
-    }, [data])
+    }, [vaultData])
 
     const shimmer = <div className="h-5 w-24 animate-pulse rounded bg-white/10" aria-hidden />
 
@@ -88,55 +143,65 @@ const VaultDashboard: React.FC = () => {
                                 <StatCard
                                     icon={<FiActivity />}
                                     label="Current Round"
-                                    value={data ? `#${data.currentRound}` : "—"}
-                                    hint={`Utilization ${derived.utilization}%`}
+                                    value={vaultData ? `#${vaultData.currentRound}` : "—"}
                                     accent="from-emerald-500/15"
                                 />
                                 <StatCard
                                     icon={<FiClock />}
                                     label="Round Start"
-                                    value={data ? formatDateTime(data.roundData.startTime) : "—"}
+                                    value={vaultData ? formatDateTime(vaultData.roundData.startTime) : "—"}
                                     hint="UTC"
                                 />
                                 <StatCard
                                     icon={<FiClock />}
                                     label="Round End"
-                                    value={data ? formatDateTime(data.roundData.endTime) : "—"}
+                                    value={vaultData ? formatDateTime(vaultData.roundData.endTime) : "—"}
                                     hint="UTC"
                                 />
                                 <StatCard
                                     icon={<FiTrendingUp />}
                                     label="Expected Current Round"
-                                    value={data ? `#${data.currentRound}` : "—"}
-                                    hint="Projected sync"
+                                    value={vaultData ? `#${vaultData.calculatedRound}` : "—"}
                                 />
                             </div>
                         </Section>
 
-                        <div className="grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
-                            <Section title="Supply & Staking" subtitle="Ready for staking integration">
+                        <div className="grid gap-6 lg:grid-cols-2">
+                            <Section title="Supply & Staking">
                                 <div className="grid gap-4 md:grid-cols-2">
                                     <StatCard
                                         icon={<FiTrendingUp />}
                                         label="USDV Total Supply"
-                                        value={data ? `${data.dusdMinted.toFixed(3)} USDV` : "—"}
-                                        hint="On-chain metric"
+                                        value={vaultData ? `${vaultData.dusdMinted.toFixed(3)} USDV` : "—"}
                                         accent="from-emerald-400/15"
                                     />
                                     <StatCard
                                         icon={<FiPieChart />}
                                         label="USDV Staked"
-                                        value={data ? `${(data.dusdMinted * 0.42).toFixed(3)} USDV` : shimmer}
-                                        hint="Placeholder · hook when ready"
+                                        value={vaultData ? `${vaultData.totalStaked.toFixed(3)} USDV` : shimmer}
                                         accent="from-indigo-400/15"
+                                    />
+                                    <StatCard
+                                        icon={<FiDollarSign />}
+                                        label="Total Collateral Value"
+                                        value={
+                                            Object.keys(tokenPrices).length > 0 ? formatCurrency(totalCollateralValue) : shimmer
+                                        }
+                                        accent="from-blue-400/15"
+                                    />
+                                    <StatCard
+                                        icon={<FiPercent />}
+                                        label="LTV Ratio"
+                                        value={Object.keys(tokenPrices).length > 0 ? `${ltvRatio}%` : shimmer}
+                                        accent="from-purple-400/15"
                                     />
                                 </div>
                             </Section>
-
-                            <Section title="Collateral Details" subtitle="HYPE & KHype legs">
-                                <CollateralTable rows={derived.collateralRows} />
-                            </Section>
                         </div>
+
+                        <Section title="Collateral Details" subtitle={`${derived.tokenDetails.length} supported tokens`}>
+                            <CollateralTable tokenDetails={derived.tokenDetails} />
+                        </Section>
                     </div>
                 </main>
             </div>

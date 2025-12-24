@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import { createPublicClient, formatUnits, http } from "viem"
 import { useChainId } from "wagmi"
-import { EXECUTOR_ADDRESS, HYPERLEND_POOL_ADDRESS } from "../config/constants"
+import { HYPERLEND_POOL_ADDRESS } from "../config/constants"
 import { hyperliquidMainnet } from "../config/chains"
 import { HYPERLEND_ABI } from "../config/Abi"
 
@@ -14,8 +14,7 @@ interface HyperLendData {
     healthFactor: number
 }
 
-export function useHyperLendData() {
-    const address = EXECUTOR_ADDRESS
+export function useHyperLendData(address: string) {
     const chainId = useChainId()
 
     return useQuery<HyperLendData | null>({

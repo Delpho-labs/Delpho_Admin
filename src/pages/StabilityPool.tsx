@@ -219,7 +219,7 @@ const StabilityPool: React.FC = () => {
                 accent: "from-indigo-500/15",
             },
         ]
-    }, [userPosition, isLoading, error, allAssets, assetsWithDepositsCount]);
+    }, [userPosition, isLoading, error, allAssets, assetsWithDepositsCount])
 
     return (
         <div className="min-h-screen bg-[#0A1010] text-white">
@@ -233,10 +233,7 @@ const StabilityPool: React.FC = () => {
                 <main className="flex-1 overflow-y-auto px-4 py-6 md:px-10">
                     <TopNav title="Stability Pool" />
 
-                    <SectionCard
-                        title="Stability Pool Metrics"
-                      
-                    >
+                    <SectionCard title="Stability Pool Metrics">
                         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                             {metrics.map((metric) => (
                                 <StatCard key={metric.label} {...metric} />

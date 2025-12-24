@@ -1,34 +1,61 @@
 import React from "react"
-import type { RebalancingType } from "../types"
+
+type RebalancingType = "upside" | "downside" | null
 
 interface RebalancingToggleProps {
     selectedType: RebalancingType
     onTypeChange: (type: RebalancingType) => void
+    disabled?: boolean
 }
 
-export const RebalancingToggle: React.FC<RebalancingToggleProps> = ({ selectedType, onTypeChange }) => {
+export const RebalancingToggle: React.FC<RebalancingToggleProps> = ({ selectedType, onTypeChange, disabled = false }) => {
     return (
-        <div className="rounded-2xl border border-[#1A2323] bg-[#0D1515] p-5">
-            <div className="flex gap-2">
+        <div className="space-y-3">
+            <p className="text-sm text-[#A3B8B0]">
+                {selectedType === null
+                    ? "No rebalancing required"
+                    : `${selectedType === "upside" ? "Upside" : "Downside"} rebalancing detected`}
+            </p>
+
+            <div className="inline-flex rounded-xl border border-[#1A2323] bg-[#0D1515] p-1">
                 <button
-                    onClick={() => onTypeChange("upside")}
-                    className={`flex-1 px-4 py-3 rounded-xl font-medium text-sm transition-all cursor-pointer ${
+                    onClick={() => !disabled && onTypeChange("upside")}
+                    disabled={disabled}
+                    className={`px-4 py-2 text-sm rounded-lg transition-all ${
                         selectedType === "upside"
-                            ? "bg-[#00FFB2] text-[#101616] shadow-[0_0_20px_rgba(0,255,178,0.3)] font-semibold"
-                            : "bg-white/5 text-[#A3B8B0] hover:bg-white/10 border border-[#1A2323]"
+                            ? "bg-[#00FFB2] text-[#0D1515] font-semibold shadow-lg"
+                            : disabled
+                              ? "text-[#3A4A4A] cursor-not-allowed"
+                              : "text-[#A3B8B0] hover:text-[#E6FFF6] cursor-pointer"
                     }`}
                 >
-                    Upside Rebalancing Needed
+                    Upside
                 </button>
                 <button
-                    onClick={() => onTypeChange("downside")}
-                    className={`flex-1 px-4 py-3 rounded-xl font-medium text-sm transition-all cursor-pointer ${
+                    onClick={() => !disabled && onTypeChange("downside")}
+                    disabled={disabled}
+                    className={`px-4 py-2 text-sm rounded-lg transition-all ${
                         selectedType === "downside"
-                            ? "bg-[#00FFB2] text-[#101616] shadow-[0_0_20px_rgba(0,255,178,0.3)] font-semibold"
-                            : "bg-white/5 text-[#A3B8B0] hover:bg-white/10 border border-[#1A2323]"
+                            ? "bg-[#00FFB2] text-[#0D1515] font-semibold shadow-lg"
+                            : disabled
+                              ? "text-[#3A4A4A] cursor-not-allowed"
+                              : "text-[#A3B8B0] hover:text-[#E6FFF6] cursor-pointer"
                     }`}
                 >
-                    Downside Rebalancing Needed
+                    Downside
+                </button>
+                <button
+                    onClick={() => !disabled && onTypeChange(null)}
+                    disabled={disabled}
+                    className={`px-4 py-2 text-sm rounded-lg transition-all ${
+                        selectedType === null
+                            ? "bg-[#00FFB2] text-[#0D1515] font-semibold shadow-lg"
+                            : disabled
+                              ? "text-[#3A4A4A] cursor-not-allowed"
+                              : "text-[#A3B8B0] hover:text-[#E6FFF6] cursor-pointer"
+                    }`}
+                >
+                    None
                 </button>
             </div>
         </div>
