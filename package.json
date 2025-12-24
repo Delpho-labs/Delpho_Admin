@@ -19,6 +19,7 @@
         "axios": "^1.13.2",
         "dotenv": "^17.2.1",
         "framer-motion": "^12.23.7",
+        "graphql-request": "^7.4.0",
         "hyperliquid": "^1.7.6",
         "ky": "^1.14.1",
         "prettier": "^3.7.4",
