@@ -17,51 +17,51 @@ const formatDateTime = (timestamp?: number) => {
 }
 
 const VaultDashboard: React.FC = () => {
-    const dispatch = useDispatch<AppDispatch>();
-    const vaultState = useSelector((state: RootState) => state.vault);
-    const { data, isLoading, error } = useVaultData();
+    const dispatch = useDispatch<AppDispatch>()
+    const vaultState = useSelector((state: RootState) => state.vault)
+    const { data, isLoading, error } = useVaultData()
 
     useEffect(() => {
         if (data) {
-            dispatch(setVaultData(data));
+            dispatch(setVaultData(data))
         }
-    }, [data, dispatch]);
+    }, [data, dispatch])
 
-    const vaultData = vaultState.data;
+    const vaultData = vaultState.data
 
     // State to store token prices
-    const [tokenPrices, setTokenPrices] = React.useState<{[address: string]: number}>({});
+    const [tokenPrices, setTokenPrices] = React.useState<{ [address: string]: number }>({})
 
     // Fetch token prices when vault data is available
     useEffect(() => {
         const fetchTokenPrices = async () => {
-            if (!vaultData) return;
-            
-            const prices: {[address: string]: number} = {};
+            if (!vaultData) return
+
+            const prices: { [address: string]: number } = {}
             for (const token of vaultData.tokensData) {
                 try {
-                    const price = await getTokenPrice(token.address);
-                    prices[token.address] = price;
+                    const price = await getTokenPrice(token.address)
+                    prices[token.address] = price
                 } catch (error) {
-                    console.error(`Failed to fetch price for token ${token.address}:`, error);
-                    prices[token.address] = 0;
+                    console.error(`Failed to fetch price for token ${token.address}:`, error)
+                    prices[token.address] = 0
                 }
             }
-            setTokenPrices(prices);
-        };
+            setTokenPrices(prices)
+        }
 
-        fetchTokenPrices();
-    }, [vaultData]);
+        fetchTokenPrices()
+    }, [vaultData])
 
     // Calculate total collateral value in USD
     const calculateTotalCollateralValue = () => {
-        if (!vaultData || Object.keys(tokenPrices).length === 0) return 0;
-        
+        if (!vaultData || Object.keys(tokenPrices).length === 0) return 0
+
         return vaultData.tokensData.reduce((sum, token) => {
-            const price = tokenPrices[token.address] || 0;
-            return sum + (token.totalCollateral * price);
-        }, 0);
-    };
+            const price = tokenPrices[token.address] || 0
+            return sum + token.totalCollateral * price
+        }, 0)
+    }
 
     const formatCurrency = (value?: number) => {
         if (value === undefined || value === null) return "$0.00"
@@ -73,10 +73,9 @@ const VaultDashboard: React.FC = () => {
         }).format(value)
     }
 
-    const totalCollateralValue = calculateTotalCollateralValue();
-    const ltvRatio = vaultData && totalCollateralValue > 0 
-        ? ((vaultData.dusdMinted / totalCollateralValue) * 100).toFixed(2) 
-        : "0.00";
+    const totalCollateralValue = calculateTotalCollateralValue()
+    const ltvRatio =
+        vaultData && totalCollateralValue > 0 ? ((vaultData.dusdMinted / totalCollateralValue) * 100).toFixed(2) : "0.00"
 
     const derived = useMemo(() => {
         if (!vaultData) {
@@ -185,7 +184,9 @@ const VaultDashboard: React.FC = () => {
                                     <StatCard
                                         icon={<FiDollarSign />}
                                         label="Total Collateral Value"
-                                        value={Object.keys(tokenPrices).length > 0 ? formatCurrency(totalCollateralValue) : shimmer}
+                                        value={
+                                            Object.keys(tokenPrices).length > 0 ? formatCurrency(totalCollateralValue) : shimmer
+                                        }
                                         accent="from-blue-400/15"
                                     />
                                     <StatCard
