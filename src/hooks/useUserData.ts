@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-import { createPublicClient, http, parseUnits, type Address } from "viem"
-import { useAccount } from "wagmi"
+import { createPublicClient, formatUnits, http, type Address } from "viem"
 import { DELPHO_CONFIG_PROVIDER_ABI, DELPHO_STAKER_ABI, DELPHO_VAULT_LENS_ABI } from "../config/Abi"
 import { hyperliquidMainnet } from "../config/chains"
 import { DELPHO_CONFIG_PROVIDER_ADDRESS, DELPHO_STAKER_ADDRESS, DELPHO_VAULT_LENS_ADDRESS } from "../config/constants"
@@ -13,16 +12,14 @@ const client = createPublicClient({
 })
 
 export function useUserData(userAddress: Address): UserMetrics {
-    const { address } = useAccount()
-
     const {
         data: stabilityPoolData,
         isLoading,
         error,
     } = useQuery({
-        queryKey: ["stabilityPoolFullData", address],
+        queryKey: ["userData", userAddress],
         queryFn: async (): Promise<UserMetrics> => {
-            if (!address) {
+            if (!userAddress) {
                 return {
                     userPosition: null,
                     isLoading: false,
@@ -120,13 +117,14 @@ export function useUserData(userAddress: Address): UserMetrics {
                         depositedAmountUsd.push(0n)
                     }
                 })
+                console.log(currentLtv, "currentLtv")
 
                 const userPosition: UserPosition = {
-                    totalCollateralValueUsd: parseUnits(totalCollateralValueUsd.toString(), 6),
-                    currentDebt: parseUnits(currentDebt.toString(), 6),
-                    pendingInterest: parseUnits(pendingInterest.toString(), 6),
-                    borrowedAmount: parseUnits(borrowedAmount.toString(), 6),
-                    currentLtv: currentLtv / BigInt(10000),
+                    totalCollateralValueUsd: formatUnits(totalCollateralValueUsd, 6),
+                    currentDebt: formatUnits(currentDebt, 6),
+                    pendingInterest: formatUnits(pendingInterest, 6),
+                    borrowedAmount: formatUnits(borrowedAmount, 6),
+                    currentLtv: currentLtv / BigInt(100),
                     depositedAssets,
                     depositedAssetsName,
                     depositedAmounts,
@@ -136,7 +134,7 @@ export function useUserData(userAddress: Address): UserMetrics {
                     loanId,
                     liquidationPrice,
                     isLtvHealthy,
-                    stakedBalance: parseUnits(stakedBalance.toString(), 6),
+                    stakedBalance: formatUnits(stakedBalance, 6),
                 }
 
                 return {
@@ -145,7 +143,7 @@ export function useUserData(userAddress: Address): UserMetrics {
                     error: null,
                 }
             } catch (error) {
-                console.error("Error fetching stability pool data:", error)
+                console.error("Error fetching user pool data:", error)
                 return {
                     userPosition: null,
                     isLoading: false,
@@ -153,7 +151,7 @@ export function useUserData(userAddress: Address): UserMetrics {
                 }
             }
         },
-        enabled: !!address,
+        enabled: !!userAddress,
         refetchInterval: 30000,
     })
 

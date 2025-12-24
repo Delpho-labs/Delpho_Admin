@@ -1,77 +1,58 @@
-import React from "react"
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import type { AppDispatch, RootState } from "../store"
+import { setVaultData } from "../features/vaultSlice"
 import HomeSidebar from "../components/HomeSidebar"
 import TopNav from "../components/TopNav"
-import { useHyperLendData } from "../hooks/useHyperLendData"
+import { useVaultData } from "../hooks/useVaultData"
+
+import { useUserData } from "../hooks/useUserData"
+import { getTokenPrice } from "../utils/helper"
+import type { Address } from "viem"
+import { useUsersFromSubgraph } from "../hooks/useSubgraphDetails"
 
 interface UserPositionRow {
     address: string
-    suppliedCollateral: number
+    totalCollateralValueUsd: number
     mintedUSDV: number
-    stakedSUSDV: number
+    stakedUSDV: number
     ltv: number
-    liquidationPrice: number
-    healthFactor: number
 }
 
-type UserPositionKey =
-    | "address"
-    | "suppliedCollateral"
-    | "mintedUSDV"
-    | "stakedSUSDV"
-    | "ltv"
-    | "liquidationPrice"
-    | "healthFactor"
-
-const MOCK_USER_POSITIONS: UserPositionRow[] = [
-    {
-        address: "0x8a2...42d1",
-        suppliedCollateral: 210_000,
-        mintedUSDV: 110_000,
-        stakedSUSDV: 45_000,
-        ltv: 52.4,
-        liquidationPrice: 32_500,
-        healthFactor: 1.58,
-    },
-    {
-        address: "0x4b1...ee99",
-        suppliedCollateral: 125_500,
-        mintedUSDV: 62_800,
-        stakedSUSDV: 20_000,
-        ltv: 50.0,
-        liquidationPrice: 29_900,
-        healthFactor: 1.71,
-    },
-    {
-        address: "0xf91...bc33",
-        suppliedCollateral: 98_420,
-        mintedUSDV: 70_000,
-        stakedSUSDV: 31_750,
-        ltv: 71.1,
-        liquidationPrice: 25_400,
-        healthFactor: 1.21,
-    },
-    {
-        address: "0xe10...aa02",
-        suppliedCollateral: 350_000,
-        mintedUSDV: 140_500,
-        stakedSUSDV: 60_000,
-        ltv: 40.1,
-        liquidationPrice: 34_200,
-        healthFactor: 2.02,
-    },
-    {
-        address: "0x7ce...f201",
-        suppliedCollateral: 64_100,
-        mintedUSDV: 48_000,
-        stakedSUSDV: 10_500,
-        ltv: 74.9,
-        liquidationPrice: 21_900,
-        healthFactor: 1.09,
-    },
-]
+type UserPositionKey = "address" | "totalCollateralValueUsd" | "mintedUSDV" | "stakedUSDV" | "ltv"
 
 const Overview: React.FC = () => {
-    const { data: hyperLendData, isLoading, error } = useHyperLendData()
+    const dispatch = useDispatch<AppDispatch>()
+    const vaultState = useSelector((state: RootState) => state.vault)
+    const { data: vaultData, isLoading, error } = useVaultData()
+
+    useEffect(() => {
+        if (vaultData) {
+            dispatch(setVaultData(vaultData))
+        }
+    }, [vaultData, dispatch])
+
+    const [tokenPrices, setTokenPrices] = React.useState<{ [address: string]: number }>({})
+
+    useEffect(() => {
+        const fetchTokenPrices = async () => {
+            if (!vaultState.data) return
+
+            const prices: { [address: string]: number } = {}
+            for (const token of vaultState.data.tokensData) {
+                try {
+                    const price = await getTokenPrice(token.address)
+                    prices[token.address] = price
+                } catch (error) {
+                    console.error(`Failed to fetch price for token ${token.address}:`, error)
+                    prices[token.address] = 0
+                }
+            }
+            setTokenPrices(prices)
+        }
+
+        fetchTokenPrices()
+    }, [vaultState.data])
 
     const formatCurrency = (value?: number) => {
         if (value === undefined || value === null) return "$0.00"
@@ -83,12 +64,27 @@ const Overview: React.FC = () => {
         }).format(value)
     }
 
-    const formatPercent = (value?: number) => {
-        if (value === undefined || value === null) return "0.00%"
-        return `${value.toFixed(2)}%`
+    const calculateTotalCollateralValue = () => {
+        if (!vaultState.data || Object.keys(tokenPrices).length === 0) return 0
+
+        return vaultState.data.tokensData.reduce((sum, token) => {
+            const price = tokenPrices[token.address] || 0
+            return sum + token.totalCollateral * price
+        }, 0)
+    }
+
+    const calculateTotalAvailableForWithdrawal = () => {
+        if (!vaultState.data || Object.keys(tokenPrices).length === 0) return 0
+
+        return vaultState.data.tokensData.reduce((sum, token) => {
+            const price = tokenPrices[token.address] || 0
+            return sum + token.availableForWithdrawRequest * price
+        }, 0)
     }
 
     const totalStrategies = 4
+    const totalCollateralValue = calculateTotalCollateralValue()
+    const totalAvailableForWithdrawal = calculateTotalAvailableForWithdrawal()
 
     return (
         <div className="min-h-screen flex bg-[#101616] text-[#E6FFF6]">
@@ -97,11 +93,17 @@ const Overview: React.FC = () => {
                 <TopNav title="Overview" />
 
                 <section className="grid gap-4 md:grid-cols-4">
-                    <OverviewCard label="All Supplied TVL" value={formatCurrency(hyperLendData?.totalCollateral)} />
-                    <OverviewCard label="Total Minted USDV" value={formatCurrency(hyperLendData?.totalDebt)} />
                     <OverviewCard
-                        label="Health Factor"
-                        value={hyperLendData?.healthFactor !== undefined ? hyperLendData.healthFactor.toFixed(3) : "0.000"}
+                        label="Total USDV Supply"
+                        value={vaultState.data ? `${vaultState.data.dusdMinted.toFixed(2)} USDV` : "0.00 USDV"}
+                    />
+                    <OverviewCard
+                        label="Total USDV Staked"
+                        value={vaultState.data ? `${vaultState.data.totalStaked.toFixed(2)} USDV` : "0.00 USDV"}
+                    />
+                    <OverviewCard
+                        label="Current Round"
+                        value={vaultState.data ? `#${vaultState.data.currentRound}` : "#0"}
                         highlight
                     />
                     <OverviewCard label="Active Strategies" value={totalStrategies.toString()} />
@@ -111,8 +113,8 @@ const Overview: React.FC = () => {
                     <div className="bg-[#0B1212] rounded-3xl p-6 space-y-4">
                         <div className="flex items-center justify-between">
                             <div>
-                                <h2 className="text-xl font-semibold">Portfolio Snapshot</h2>
-                                <p className="text-sm text-[#A3B8B0]">High-level view across lending, minting and strategies.</p>
+                                <h2 className="text-xl font-semibold">Collateral Overview</h2>
+                                <p className="text-sm text-[#A3B8B0]">High-level view across supported collateral tokens.</p>
                             </div>
                         </div>
 
@@ -121,26 +123,33 @@ const Overview: React.FC = () => {
                                 <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[#E6FFF6]" />
                             </div>
                         ) : error ? (
-                            <div className="rounded-xl bg-red-900/40 p-4 text-sm text-red-200">Error loading overview data</div>
-                        ) : (
+                            <div className="rounded-xl bg-red-900/40 p-4 text-sm text-red-200">Error loading vault data</div>
+                        ) : vaultState.data ? (
                             <div className="grid gap-4 md:grid-cols-2">
                                 <OverviewMetric
-                                    label="Available to Borrow"
-                                    value={formatCurrency(hyperLendData?.availableBorrows)}
-                                />
-                                <OverviewMetric label="Loan to Value (LTV)" value={formatPercent(hyperLendData?.ltv)} />
-                                <OverviewMetric
-                                    label="Liquidation Threshold"
-                                    value={formatPercent(hyperLendData?.liquidationThreshold)}
+                                    label="Supported Tokens"
+                                    value={vaultState.data.supportedTokens.length.toString()}
                                 />
                                 <OverviewMetric
-                                    label="Utilization"
+                                    label="Staking Ratio"
                                     value={
-                                        hyperLendData?.totalCollateral
-                                            ? `${((hyperLendData.totalDebt / hyperLendData.totalCollateral) * 100).toFixed(2)}%`
+                                        vaultState.data.dusdMinted > 0
+                                            ? `${((vaultState.data.totalStaked / vaultState.data.dusdMinted) * 100).toFixed(2)}%`
                                             : "0.00%"
                                     }
                                 />
+                                <OverviewMetric label="Total Collateral Value" value={formatCurrency(totalCollateralValue)} />
+                                <OverviewMetric
+                                    label="Available for Withdrawal"
+                                    value={formatCurrency(totalAvailableForWithdrawal)}
+                                />
+                            </div>
+                        ) : (
+                            <div className="grid gap-4 md:grid-cols-2">
+                                <OverviewMetric label="Supported Tokens" value="0" />
+                                <OverviewMetric label="Staking Ratio" value="0.00%" />
+                                <OverviewMetric label="Total Collateral Value" value="$0.00" />
+                                <OverviewMetric label="Available for Withdrawal" value="$0.00" />
                             </div>
                         )}
                     </div>
@@ -167,30 +176,46 @@ const Overview: React.FC = () => {
     )
 }
 
-interface OverviewCardProps {
-    label: string
-    value: string
-    highlight?: boolean
-}
-
-const OverviewCard: React.FC<OverviewCardProps> = ({ label, value, highlight }) => (
+const OverviewCard: React.FC<{ label: string; value: string; highlight?: boolean }> = ({ label, value, highlight }) => (
     <div className="rounded-3xl bg-[#0B1212] border border-[#1A2323] p-5 flex flex-col justify-between">
         <p className="text-xs uppercase tracking-wide text-[#A3B8B0] mb-2">{label}</p>
         <p className={`text-2xl font-semibold ${highlight ? "text-[#00FFB2]" : "text-[#E6FFF6]"}`}>{value}</p>
     </div>
 )
 
-interface OverviewMetricProps {
-    label: string
-    value: string
-}
-
-const OverviewMetric: React.FC<OverviewMetricProps> = ({ label, value }) => (
+const OverviewMetric: React.FC<{ label: string; value: string }> = ({ label, value }) => (
     <div className="rounded-2xl border border-[#1A2323] p-4">
         <p className="text-sm text-[#A3B8B0]">{label}</p>
         <p className="text-lg font-semibold mt-1">{value}</p>
     </div>
 )
+
+const UserRow: React.FC<{ address: Address; onUserDataLoaded: (data: UserPositionRow | null) => void }> = ({
+    address,
+    onUserDataLoaded,
+}) => {
+    console.log(address, "address")
+
+    const userData = useUserData(address)
+    console.log(userData, "userData")
+
+    React.useEffect(() => {
+        if (!userData.isLoading && userData.userPosition) {
+            const position = userData.userPosition
+            onUserDataLoaded({
+                address: address,
+                totalCollateralValueUsd: Number(position.totalCollateralValueUsd),
+                mintedUSDV: Number(position.borrowedAmount),
+                stakedUSDV: Number(position.stakedBalance),
+                ltv: Number(position.currentLtv),
+            })
+        } else if (!userData.isLoading && !userData.userPosition) {
+            onUserDataLoaded(null)
+        }
+    }, [userData, address, onUserDataLoaded])
+
+    return null
+}
 
 const VaultUsersSection: React.FC = () => {
     const [userSearch, setUserSearch] = React.useState("")
@@ -202,8 +227,35 @@ const VaultUsersSection: React.FC = () => {
         direction: "desc",
     })
 
+    const { data: userAddresses, isLoading: isLoadingAddresses, error: addressesError } = useUsersFromSubgraph()
+    const [usersData, setUsersData] = React.useState<UserPositionRow[]>([])
+    const [loadedCount, setLoadedCount] = React.useState(0)
+
+    React.useEffect(() => {
+        if (userAddresses) {
+            setUsersData([])
+            setLoadedCount(0)
+        }
+    }, [userAddresses])
+
+    const handleUserDataLoaded = React.useCallback(
+        (address: Address) => (data: UserPositionRow | null) => {
+            if (data) {
+                setUsersData((prev) => {
+                    const exists = prev.some((u) => u.address === address)
+                    if (!exists) {
+                        return [...prev, data]
+                    }
+                    return prev
+                })
+            }
+            setLoadedCount((prev) => prev + 1)
+        },
+        []
+    )
+
     const filteredAndSorted = React.useMemo(() => {
-        const filtered = MOCK_USER_POSITIONS.filter((user) => user.address.toLowerCase().includes(userSearch.toLowerCase()))
+        const filtered = usersData.filter((user) => user.address.toLowerCase().includes(userSearch.toLowerCase()))
         return [...filtered].sort((a, b) => {
             const { key, direction } = sortConfig
             const dir = direction === "asc" ? 1 : -1
@@ -212,15 +264,13 @@ const VaultUsersSection: React.FC = () => {
             }
             return ((a[key] as number) - (b[key] as number)) * dir
         })
-    }, [userSearch, sortConfig])
+    }, [usersData, userSearch, sortConfig])
 
     const handleSort = (key: UserPositionKey) => {
-        setSortConfig((prev) => {
-            if (prev.key === key) {
-                return { key, direction: prev.direction === "asc" ? "desc" : "asc" }
-            }
-            return { key, direction: "desc" }
-        })
+        setSortConfig((prev) => ({
+            key,
+            direction: prev.key === key && prev.direction === "asc" ? "desc" : "asc",
+        }))
     }
 
     const formatCurrencyLocal = (value: number) =>
@@ -231,21 +281,28 @@ const VaultUsersSection: React.FC = () => {
             maximumFractionDigits: 2,
         }).format(value)
 
+    const isStillLoading = userAddresses && loadedCount < userAddresses.length
+
     return (
         <section className="bg-[#0B1212] rounded-3xl p-6 space-y-4">
             <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                 <div>
                     <h3 className="text-xl font-semibold">Vault Users & Collateral</h3>
-                    <p className="text-sm text-[#A3B8B0]">Supplied collateral, minted USDV, and liquidation posture.</p>
+                    <p className="text-sm text-[#A3B8B0]">Supplied collateral, minted USDV, and LTV ratio.</p>
                 </div>
                 <input
                     type="text"
                     placeholder="Search address"
                     value={userSearch}
-                    onChange={(event) => setUserSearch(event.target.value)}
+                    onChange={(e) => setUserSearch(e.target.value)}
                     className="bg-[#111818] border border-[#1A2323] rounded-full px-4 py-2 text-sm focus:outline-none focus:border-[#00FFB2]"
                 />
             </div>
+
+            {userAddresses?.map((data) => (
+                <UserRow key={data.address} address={data.address} onUserDataLoaded={handleUserDataLoaded(data.address)} />
+            ))}
+
             <div className="rounded-2xl border border-[#1A2323] overflow-hidden">
                 <table className="w-full text-left text-sm">
                     <thead className="bg-[#111818] text-[#A3B8B0]">
@@ -253,12 +310,10 @@ const VaultUsersSection: React.FC = () => {
                             {(
                                 [
                                     ["address", "User"],
-                                    ["suppliedCollateral", "Supplied"],
+                                    ["totalCollateralValueUsd", "Total Collateral"],
                                     ["mintedUSDV", "Minted USDV"],
-                                    ["stakedSUSDV", "Staked sUSDV"],
-                                    ["ltv", "LTV"],
-                                    ["liquidationPrice", "Liq. Price"],
-                                    ["healthFactor", "Health"],
+                                    ["stakedUSDV", "Staked USDV"],
+                                    ["ltv", "LTV %"],
                                 ] as [UserPositionKey, string][]
                             ).map(([key, label]) => (
                                 <th
@@ -275,32 +330,46 @@ const VaultUsersSection: React.FC = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {filteredAndSorted.length === 0 ? (
+                        {isLoadingAddresses ? (
                             <tr>
-                                <td colSpan={7} className="px-4 py-6 text-center text-[#A3B8B0]">
-                                    No users found
+                                <td colSpan={5} className="px-4 py-8 text-center">
+                                    <div className="flex justify-center items-center gap-3">
+                                        <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-[#E6FFF6]" />
+                                        <span className="text-[#A3B8B0]">Loading users...</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        ) : addressesError ? (
+                            <tr>
+                                <td colSpan={5} className="px-4 py-6 text-center text-red-400">
+                                    Error loading users
+                                </td>
+                            </tr>
+                        ) : isStillLoading ? (
+                            <tr>
+                                <td colSpan={5} className="px-4 py-8 text-center">
+                                    <div className="flex justify-center items-center gap-3">
+                                        <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-[#E6FFF6]" />
+                                        <span className="text-[#A3B8B0]">
+                                            Loading user data ({loadedCount}/{userAddresses?.length})...
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        ) : filteredAndSorted.length === 0 ? (
+                            <tr>
+                                <td colSpan={5} className="px-4 py-6 text-center text-[#A3B8B0]">
+                                    {userSearch ? "No matching users" : "No users found"}
                                 </td>
                             </tr>
                         ) : (
                             filteredAndSorted.map((user) => (
                                 <tr key={user.address} className="border-t border-[#1A2323] hover:bg-[#111818]">
                                     <td className="px-4 py-3 font-mono text-sm">{user.address}</td>
-                                    <td className="px-4 py-3">{formatCurrencyLocal(user.suppliedCollateral)}</td>
+                                    <td className="px-4 py-3">{formatCurrencyLocal(user.totalCollateralValueUsd)}</td>
                                     <td className="px-4 py-3">{formatCurrencyLocal(user.mintedUSDV)}</td>
-                                    <td className="px-4 py-3">{formatCurrencyLocal(user.stakedSUSDV)}</td>
+                                    <td className="px-4 py-3">{formatCurrencyLocal(user.stakedUSDV)}</td>
                                     <td className="px-4 py-3">{user.ltv.toFixed(1)}%</td>
-                                    <td className="px-4 py-3">{formatCurrencyLocal(user.liquidationPrice)}</td>
-                                    <td
-                                        className={`px-4 py-3 font-semibold ${
-                                            user.healthFactor < 1.15
-                                                ? "text-red-400"
-                                                : user.healthFactor < 1.4
-                                                  ? "text-yellow-300"
-                                                  : "text-[#00FFB2]"
-                                        }`}
-                                    >
-                                        {user.healthFactor.toFixed(2)}
-                                    </td>
                                 </tr>
                             ))
                         )}
